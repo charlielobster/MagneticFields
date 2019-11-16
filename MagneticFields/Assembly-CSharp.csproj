@@ -75,64 +75,64 @@
     <Compile Include="Assets\MagneticFields\UI\PersistentMenu.cs" />
     <Compile Include="Assets\MagneticFields\UI\WorldCanvas.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARSubsystems">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARSubsystems.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARCore">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARFoundation.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARFoundation">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARCore.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -306,7 +306,7 @@
       <HintPath>D:/Program Files/Unity/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
-      <HintPath>D:/Users/skoob/Documents/Unity/MagneticFields/v1/MagneticFields/Assets/PlugIns/KdTreeLib.dll</HintPath>
+      <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Assets/PlugIns/KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/Program Files/Unity/2019.2.6f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
