@@ -21,3 +21,5 @@
 *.buildreport
 /MagneticFields/Library/EditorUserBuildSettings.asset
 /MagneticFields/Library/EditorUserSettings.asset
+/MagneticFields/Library/CurrentLayout-default.dwlt
+/MagneticFields/Library/EditorInstance.json
