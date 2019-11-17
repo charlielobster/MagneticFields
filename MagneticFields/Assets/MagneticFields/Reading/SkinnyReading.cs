@@ -11,54 +11,30 @@ namespace MagneticFields.Reading
 {
     public class SkinnyReading : MonoBehaviour
     {
-        private List<LineRenderer> axes;
-        public float unitLength = 0.5f;
-        
-
         private Material vectorMaterial;
         private Vector3 reading;
         private Vector3 position;
-        private Color color;
 
         public SkinnyReading()
         {
-            vectorMaterial = new Material(Shader.Find("Diffuse"));
-            vectorMaterial.SetColor("_Color", color);
-
-            var stem = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            stem.GetComponent<Renderer>().material = vectorMaterial;
-            stem.transform.localScale = new Vector3(.25f, 1f, .25f);
-            stem.transform.parent = this.gameObject.transform;
-
-            var arrowHeadBase = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-            arrowHeadBase.GetComponent<Renderer>().material = vectorMaterial;
-            arrowHeadBase.transform.localScale = new Vector3(.5f, .01f, .5f);
-            arrowHeadBase.transform.position = new Vector3(0, 1f, 0);
-            arrowHeadBase.transform.parent = this.gameObject.transform;
-
-            var cone = Cone.CreateCone();
-            cone.transform.rotation = Quaternion.Euler(90f, 0, 0);
-            cone.transform.position = new Vector3(0, 1.5f, 0);
-            cone.transform.localScale = new Vector3(.25f, .25f, .5f);
-            cone.transform.parent = this.gameObject.transform;
-            cone.GetComponent<MeshRenderer>().material = vectorMaterial;
+            m_unitLength = 1f;
+            m_color = Color.white;
+            rendererObject = new GameObject();
+            lineRenderer = rendererObject.AddComponent<LineRenderer>();
+            lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+            lineRenderer.material.SetColor("_Color", color);
+            lineRenderer.widthMultiplier = 0.0025f;
+            lineRenderer.useWorldSpace = false;
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, new Vector3(.0f, .0f, .0f));
         }
 
         public Vector3 Reading
         {
             set
             {
-                float MAX = 500f;
                 reading = value;
-                float r = reading.magnitude / MAX;
-                float g = 1f - reading.magnitude / MAX;
-                Color = new Color(r, g, 0.34f);
-                Vector3 a = new Vector3(0, 1f, 0);
-                var b = reading.normalized;
-                Quaternion q = Utils.RotateA2B(a, b);
-                this.gameObject.transform.rotation = q;
-                this.gameObject.transform.localScale =
-                    new Vector3(.3f, .075f * (float)Math.Log(reading.magnitude), .3f);
+                lineRenderer.SetPosition(1, reading);
             }
             get { return reading; }
         }
@@ -72,92 +48,152 @@ namespace MagneticFields.Reading
             }
             get { return position; }
         }
-
-        public Color Color
-        {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                color = value;
-                vectorMaterial.SetColor("_Color", color);
-            }
-        }
-
-
-        public float widthMultiplier
-        {
-            set
-            {
-                foreach (var a in axes)
-                {
-                    a.widthMultiplier = value;
-                }
-            }
-            get
-            {
-                return axes[0].widthMultiplier;
-            }
-        }
+        
+        private Vector3 m_center;
+        private float m_unitLength;
+        private Color m_color;
+        private LineRenderer lineRenderer;
+        private GameObject rendererObject;
         /*
-        public Axis()
+        public BoundingBox()
         {
-            axes = new List<LineRenderer>();
-
-            var xAxisObject = new GameObject();
-            xAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(xAxisObject.AddComponent<LineRenderer>());
-            axes[0].material = new Material(Shader.Find("Sprites/Default"));
-            axes[0].material.SetColor("_Color", Color.red);
-
-            var yAxisObject = new GameObject();
-            yAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(yAxisObject.AddComponent<LineRenderer>());
-            axes[1].material = new Material(Shader.Find("Sprites/Default"));
-            axes[1].material.SetColor("_Color", Color.green);
-
-            var zAxisObject = new GameObject();
-            zAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(zAxisObject.AddComponent<LineRenderer>());
-            axes[2].material = new Material(Shader.Find("Sprites/Default"));
-            axes[2].material.SetColor("_Color", Color.blue);
-
-            foreach (var a in axes)
-            {
-                a.widthMultiplier = 0.02f;
-                a.positionCount = 2;
-            }
+            m_unitLength = 1f;
+            m_color = Color.white;
+            rendererObject = new GameObject();
+            lineRenderer = rendererObject.AddComponent<LineRenderer>();
+            lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+            lineRenderer.material.SetColor("_Color", color);
+            lineRenderer.widthMultiplier = 0.0025f;
+            lineRenderer.useWorldSpace = false;
+            lineRenderer.positionCount = 16;
+            lineRenderer.SetPosition(0, new Vector3(-.5f, -.5f, -.5f));
+            lineRenderer.SetPosition(1, new Vector3(.5f, -.5f, -.5f));
+            lineRenderer.SetPosition(2, new Vector3(.5f, -.5f, .5f));
+            lineRenderer.SetPosition(3, new Vector3(-.5f, -.5f, .5f));
+            lineRenderer.SetPosition(4, new Vector3(-.5f, -.5f, -.5f));
+            lineRenderer.SetPosition(5, new Vector3(-.5f, .5f, -.5f));
+            lineRenderer.SetPosition(6, new Vector3(.5f, .5f, -.5f));
+            lineRenderer.SetPosition(7, new Vector3(.5f, .5f, .5f));
+            lineRenderer.SetPosition(8, new Vector3(-.5f, .5f, .5f));
+            lineRenderer.SetPosition(9, new Vector3(-.5f, .5f, -.5f));
+            lineRenderer.SetPosition(10, new Vector3(.5f, .5f, -.5f));
+            lineRenderer.SetPosition(11, new Vector3(.5f, -.5f, -.5f));
+            lineRenderer.SetPosition(12, new Vector3(.5f, -.5f, .5f));
+            lineRenderer.SetPosition(13, new Vector3(.5f, .5f, .5f));
+            lineRenderer.SetPosition(14, new Vector3(-.5f, .5f, .5f));
+            lineRenderer.SetPosition(15, new Vector3(-.5f, -.5f, .5f));
         }
         */
-        public void OnDisable()
+        public Vector3 center
         {
-            foreach (var a in axes)
+            get
             {
-                a.enabled = false;
+                return m_center;
             }
+            set
+            {
+                m_center = value;
+                rendererObject.transform.position = value;
+            }
+        }
+
+        public float unitLength
+        {
+            get
+            {
+                return m_unitLength;
+            }
+            set
+            {
+                rendererObject.transform.localScale = Vector3.one * value;
+                lineRenderer.widthMultiplier = 0.005f * value;
+                m_unitLength = value;
+            }
+        }
+
+        public float minX
+        {
+            get
+            {
+                return m_center.x - .5f * m_unitLength;
+            }
+        }
+
+        public float maxX
+        {
+            get
+            {
+                return m_center.x + .5f * m_unitLength;
+            }
+        }
+
+        public float minY
+        {
+            get
+            {
+                return m_center.y - .5f * m_unitLength;
+            }
+        }
+
+        public float maxY
+        {
+            get
+            {
+                return m_center.y + .5f * m_unitLength;
+            }
+        }
+
+        public float minZ
+        {
+            get
+            {
+                return m_center.z - .5f * m_unitLength;
+            }
+        }
+
+        public float maxZ
+        {
+            get
+            {
+                return m_center.z + .5f * m_unitLength;
+            }
+        }
+
+        public Color color
+        {
+            get
+            {
+                return m_color;
+            }
+            set
+            {
+                m_color = value;
+                lineRenderer.material.SetColor("_Color", m_color);
+            }
+        }
+
+        public void OnDestroy()
+        {
+            Destroy(lineRenderer);
+            Destroy(rendererObject);
         }
 
         public void OnEnable()
         {
-            foreach (var a in axes)
-            {
-                a.enabled = true;
-            }
-
+            rendererObject.SetActive(true);
         }
 
-        public void Translate(Vector3 t)
+        public void OnDisable()
         {
-            foreach (var a in axes)
-            {
-                a.SetPosition(0, t);
-            }
-            axes[0].SetPosition(1, new Vector3(unitLength, 0, 0) + t);
-            axes[1].SetPosition(1, new Vector3(0, unitLength, 0) + t);
-            axes[2].SetPosition(1, new Vector3(0, 0, unitLength) + t);
+            rendererObject.SetActive(false);
         }
-        
+
+        public bool Surrounds(Vector3 pt)
+        {
+            return (minX <= pt.x && pt.x <= maxX &&
+                minY <= pt.y && pt.y <= maxY &&
+                minZ <= pt.z && pt.z <= maxZ);
+        }
+
     }
 }

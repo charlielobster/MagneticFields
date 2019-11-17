@@ -110,8 +110,7 @@ namespace MagneticFields.Reading
 
             canvasObject = new GameObject();
             canvas = canvasObject.AddComponent<WorldCanvas>();
-            canvas.Text = Utils.DebugVector("reading", this.reading) +
-                "\n" + Utils.DebugVector("position", this.position);
+            canvas.Text = Utils.DebugVector("reading", this.reading);
 
             this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
