@@ -16,8 +16,8 @@ namespace MagneticFields.Reading
         private Vector3 reading;
         private Vector3 position;
         private Color color;
-        private WorldCanvas canvas;
-        private GameObject canvasObject;
+      //  private WorldCanvas canvas;
+       // private GameObject canvasObject;
 
         public float Magnitude { get { return reading.magnitude; } }
 
@@ -43,8 +43,7 @@ namespace MagneticFields.Reading
                 float g = 1f - Magnitude / MAX;
                 Color = new Color(r, g, 0.34f);
                 PlaceVector();
-                canvas.Text = Utils.DebugVector("reading", this.reading) +
-                    "\n" + Utils.DebugVector("position", this.position);
+           //     canvas.Text = Utils.DebugVector("reading", this.reading) + "\n";
             }
             get { return reading; }
         }
@@ -56,7 +55,7 @@ namespace MagneticFields.Reading
                 position = value;
                 this.gameObject.transform.position = position;
                 axis.Translate(position);
-                canvasObject.transform.position = position;
+//                canvasObject.transform.position = position;
 //                canvasObject.transform.rotation = Camera.current.transform.rotation;
             }
             get { return position; }
@@ -92,6 +91,8 @@ namespace MagneticFields.Reading
             stem.transform.localScale = new Vector3(.25f, 1f, .25f);
             stem.transform.parent = this.gameObject.transform;
 
+            stem.transform.rotation = Quaternion.Euler(0, 0, 90);
+
             var arrowHeadBase = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             arrowHeadBase.GetComponent<Renderer>().material = vectorMaterial;
             arrowHeadBase.transform.localScale = new Vector3(.5f, .01f, .5f);
@@ -108,16 +109,17 @@ namespace MagneticFields.Reading
             var axisObject = new GameObject();
             axis = axisObject.AddComponent<Axis>();
 
-            canvasObject = new GameObject();
-            canvas = canvasObject.AddComponent<WorldCanvas>();
-            canvas.Text = Utils.DebugVector("reading", this.reading);
+            //canvasObject = new GameObject();
+            //canvas = canvasObject.AddComponent<WorldCanvas>();
+            //canvas.Text = Utils.DebugVector("reading", this.reading);
 
             this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
 
         private void PlaceVector()
         {
-            Vector3 a = new Vector3(0, 1f, 0);
+//            Vector3 a = new Vector3(0, 1f, 0);
+            var a = Camera.current.transform.up;
             var b = Reading.normalized;
             Quaternion q = Utils.RotateA2B(a, b);
             this.gameObject.transform.rotation = q;

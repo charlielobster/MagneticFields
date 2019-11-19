@@ -23,10 +23,11 @@ namespace MagneticFields.Reading
             lineRenderer = rendererObject.AddComponent<LineRenderer>();
             lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
             lineRenderer.material.SetColor("_Color", color);
-            lineRenderer.widthMultiplier = 0.0025f;
+            lineRenderer.widthMultiplier = 0.025f;
             lineRenderer.useWorldSpace = false;
             lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, new Vector3(.0f, .0f, .0f));
+            lineRenderer.SetPosition(0, Vector3.zero);
+            lineRenderer.SetPosition(1, new Vector3(0, 0, 1f));
         }
 
         public Vector3 Reading
@@ -34,9 +35,15 @@ namespace MagneticFields.Reading
             set
             {
                 reading = value;
+                reading.y = 0;
                 lineRenderer.SetPosition(1, reading);
             }
             get { return reading; }
+        }
+
+        public void rotateAboutY(float angle)
+        {
+            rendererObject.transform.rotation = Quaternion.Euler(0, angle, 0);
         }
 
         public Vector3 Position
@@ -44,7 +51,7 @@ namespace MagneticFields.Reading
             set
             {
                 position = value;
-                this.gameObject.transform.position = position;
+                rendererObject.transform.position = position;
             }
             get { return position; }
         }
