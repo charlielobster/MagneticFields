@@ -61,7 +61,7 @@ namespace MagneticFields.Scenes
             currentMagneticHeading += Input.compass.magneticHeading;
             count = (count + 1) % 8;
 
-            if (count == 0)
+            if (count == 7)
             {
                 currentMagneticHeading = currentMagneticHeading / 8;
 
