@@ -22,5 +22,16 @@ namespace MagneticFields.Geometry
             return new Quaternion(c.x, c.y, c.z, w);
         }
 
+        public static LineRenderer InitializeLineRenderer(GameObject gameObject, Color color)
+        {
+            var renderer = gameObject.AddComponent<LineRenderer>();
+            renderer.material = new Material(Shader.Find("Sprites/Default"));
+            renderer.material.SetColor("_Color", color);
+            renderer.widthMultiplier = 0.025f;
+            renderer.useWorldSpace = false;
+            renderer.positionCount = 2;
+            renderer.SetPosition(0, Vector3.zero);
+            return renderer;
+        }
     }
 }

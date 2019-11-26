@@ -68,7 +68,9 @@
     <Compile Include="Assets\MagneticFields\Geometry\Utils.cs" />
     <Compile Include="Assets\MagneticFields\Reading\CameraReading.cs" />
     <Compile Include="Assets\MagneticFields\Reading\FieldReading.cs" />
-    <Compile Include="Assets\MagneticFields\Reading\SkinnyReading.cs" />
+    <Compile Include="Assets\MagneticFields\Reading\Heading.cs" />
+    <Compile Include="Assets\MagneticFields\Reading\LineReading.cs" />
+    <Compile Include="Assets\MagneticFields\Reading\MagneticFieldReading.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\ContinuousScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\IdleScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\PlaceScene.cs" />

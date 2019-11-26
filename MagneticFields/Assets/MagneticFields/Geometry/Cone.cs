@@ -9,6 +9,7 @@ namespace MagneticFields.Geometry
         public static GameObject CreateCone(int numVertices = 24,
             float radiusTop = 0f, float radiusBottom = 1f, 
             float length = 1f, float openingAngle = 0f, 
+
             // if > 0, create a cone with this angle by setting radiusTop to 0, 
             // and adjust radiusBottom according to length;
             bool outside = true, bool inside = false, bool addCollider = false)
@@ -19,7 +20,9 @@ namespace MagneticFields.Geometry
                 radiusTop = 0;
                 radiusBottom = length * Mathf.Tan(openingAngle * Mathf.Deg2Rad / 2);
             }
-            string meshName = newCone.name + numVertices + "v" + radiusTop + "t" + radiusBottom + "b" + length + "l" + length + (outside ? "o" : "") + (inside ? "i" : "");
+            string meshName = newCone.name + numVertices + "v" + 
+                radiusTop + "t" + radiusBottom + "b" + length + "l" + length + 
+                (outside ? "o" : "") + (inside ? "i" : "");
             Mesh mesh = new Mesh();
             mesh.name = meshName;
 

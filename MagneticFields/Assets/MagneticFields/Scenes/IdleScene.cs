@@ -16,71 +16,97 @@ namespace MagneticFields.Scenes
     public class IdleScene : MonoBehaviour
     {
         private Text debug;
+
+        private Heading heading;
         private CameraReading cameraReading;
-        private SkinnyReading skinnyReading;
-        private GameObject lightObj;
-        private ARPlaneManager planeManager;
-        private float currentMagneticHeading;
-        private int count = 0;
+        private LineReading lineReading;
+
+        private Light directionalLight;
+        
+        private float magneticHeading;
+        private Vector3 rawVector;
+
+        public const double IDLE_TIME = 2e7; // 10,000,000 Ticks a second
+        private DateTime lastUpdated;
 
         void Awake()
         {
-            // Make a game object
-            lightObj = new GameObject();
+            directionalLight = new GameObject().AddComponent<Light>();
+            directionalLight.type = LightType.Directional;
 
-            // Add the light component
-            var light = lightObj.AddComponent<Light>();
-            light.type = LightType.Directional;
-
-            var cameraReadingObject = new GameObject();
-            cameraReading = cameraReadingObject.AddComponent<CameraReading>();
-
-            var skinnyReadingObject = new GameObject();
-            skinnyReading = skinnyReadingObject.AddComponent<SkinnyReading>();
+            cameraReading = new GameObject().AddComponent<CameraReading>();
+            lineReading = new GameObject().AddComponent<LineReading>();
+            heading = new GameObject().AddComponent<Heading>();
 
             debug = GameObject.Find("Debug").GetComponent<Text>();
             debug.text += "Awaking Idle\n";
 
-            currentMagneticHeading = Input.compass.magneticHeading;
+            magneticHeading = Input.compass.magneticHeading;
+            lastUpdated = DateTime.Now;
         }
 
         void Update()
         {
             var transform = Camera.current.transform;
-            var position = transform.position;
+            var position = transform.position + transform.forward * 2.5f;
+            var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
 
-            var output = Utils.DebugVector("camera", position);
-            output += "\n";
-
-            var reading = Input.compass.rawVector;
-            output += Utils.DebugVector("compass", reading);
-
-            output += String.Format("magneticHeading: {0}\n", Input.compass.magneticHeading);
-            var displacement = position + transform.forward * 3f;
-
-            currentMagneticHeading += Input.compass.magneticHeading;
-            count = (count + 1) % 8;
-
-            if (count == 7)
+            if (elapsedTicks > IDLE_TIME)
             {
-                currentMagneticHeading = currentMagneticHeading / 8;
+                rawVector = Input.compass.rawVector;
+                rawVector.z = -rawVector.z;              
+                magneticHeading = Input.compass.magneticHeading;
+                
+                heading.Angle = magneticHeading;
+                heading.gameObject.transform.rotation = transform.rotation;
 
+                var t = new Vector2((float)(Math.Sqrt(rawVector.x * rawVector.x + rawVector.z * rawVector.z)), rawVector.y);
+                t.Normalize();
+                var ang = -(float)(Math.Asin(t.y) * (180.0 / Math.PI));
+                if (t.y > 0) ang = -ang;
+                var s = new Vector2(rawVector.z, rawVector.x);
+                s.Normalize();                
+                var angle = (float)(Math.Acos(s.x) * (180.0 / Math.PI));
+                if (s.y > 0) angle = -angle;
+                var q = Quaternion.Euler(90f + ang, 0, 0);
+                q = Quaternion.Euler(0, -angle, 0) * q;
+                cameraReading.gameObject.transform.rotation = transform.rotation * q;
+                cameraReading.Reading = rawVector;
 
-                //  skinnyReading.Reading = .005f * reading;
-                skinnyReading.Reading = transform.forward;
-                skinnyReading.rotateAboutY(-currentMagneticHeading);
-                cameraReading.Reading = reading;
+                lineReading.Reading = rawVector;
+                lineReading.gameObject.transform.rotation = transform.rotation;
+
+                //  switch (Input.deviceOrientation)
+                //  {
+                //      case DeviceOrientation.Portrait:
+                ////          lineReading.transform.rotation = transform.rotation;
+                //          break;
+                //      case DeviceOrientation.PortraitUpsideDown:
+                //      case DeviceOrientation.LandscapeLeft:
+                //      case DeviceOrientation.LandscapeRight:
+                //      case DeviceOrientation.FaceDown:
+                //      case DeviceOrientation.FaceUp:
+                //      case DeviceOrientation.Unknown:
+                //      default:
+                //  //        lineReading.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 90);
+                //          break;
+                //  }
+
+                lastUpdated = DateTime.UtcNow;
             }
+            
+            lineReading.gameObject.transform.position = position;
 
-            skinnyReading.Position = displacement;
+            heading.gameObject.transform.position = position;
 
-            cameraReading.Position = displacement;
+            cameraReading.gameObject.transform.position = position;
+
+            directionalLight.gameObject.transform.rotation = transform.rotation;
+
+            var output = String.Empty;
+            output += String.Format("{0}\n", Utils.DebugVector("compass", rawVector));
+            output += String.Format("magneticHeading: {0,10:00.00}\n", magneticHeading);
             debug.text = output;
-
-
-            
-            
-            lightObj.transform.rotation = transform.rotation;
         }
     }
 }
