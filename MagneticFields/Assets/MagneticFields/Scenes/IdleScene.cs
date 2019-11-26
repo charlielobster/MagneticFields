@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.Experimental.XR;
-using UnityEngine.XR.ARSubsystems;
-using MagneticFields;
 using MagneticFields.Reading;
-using MagneticFields.UI;
 using MagneticFields.Geometry;
 
 namespace MagneticFields.Scenes
