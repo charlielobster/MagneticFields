@@ -19,7 +19,7 @@ namespace MagneticFields.Scenes
         private float magneticHeading;
         private Vector3 rawVector;
 
-        public const double IDLE_TIME = 2e7; // 10,000,000 Ticks a second
+        public const double IDLE_TIME = 1e8; // 10,000,000 Ticks a second
         private DateTime lastUpdated;
 
         void Awake()

@@ -1,46 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using MagneticFields.Geometry;
-using MagneticFields.UI;
+using static System.Math;
 
 namespace MagneticFields.Reading
 {
     public class Heading : MonoBehaviour
     {
-        public static readonly int VERTEX_COUNT = 32;
-
-        private Material vectorMaterial;
-        private Vector3 forward;
-        private float angle;
-
+        private float radians;
         private LineRenderer headingRenderer;
-        private LineRenderer circleRenderer;
+        private Circle circle;
         private Axis axis;
 
         public Heading()
         {
             headingRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.white);
-            headingRenderer.SetPosition(1, new Vector3(0, 0, 1f));
             headingRenderer.gameObject.transform.parent = this.gameObject.transform;
 
-            circleRenderer = new GameObject().AddComponent<LineRenderer>();
-            circleRenderer.gameObject.transform.parent = this.gameObject.transform;
-            circleRenderer.material = new Material(Shader.Find("Sprites/Default"));
-            circleRenderer.material.SetColor("_Color", Color.yellow);
-            circleRenderer.widthMultiplier = 0.025f;
-            circleRenderer.loop = true;
-            circleRenderer.useWorldSpace = false;
-            circleRenderer.positionCount = VERTEX_COUNT;
-            double theta = 0;
-            for (int i = 0; i < VERTEX_COUNT; i++)
-            {
-                theta = i * (2.0 * Math.PI) / VERTEX_COUNT;
-                circleRenderer.SetPosition(i, new Vector3((float)Math.Cos(theta), 0, (float)Math.Sin(theta)));
-            }
+            circle = new GameObject().AddComponent<Circle>();
+            circle.gameObject.transform.parent = this.gameObject.transform;
 
             axis = new GameObject().AddComponent<Axis>();
             axis.gameObject.transform.parent = this.gameObject.transform;
@@ -52,16 +29,15 @@ namespace MagneticFields.Reading
         {
             set
             {
-                headingRenderer.gameObject.transform.Rotate(new Vector3(0, 1f, 0), angle);
-                angle = value;
-                headingRenderer.gameObject.transform.Rotate(new Vector3(0, 1f, 0), -angle);
+                radians = (float)(value * PI / 180.0);
+                headingRenderer.SetPosition(1, new Vector3((float)Sin(-radians), 0, (float)Cos(-radians)));
             }
         }
 
         public void OnDestroy()
         {
             Destroy(headingRenderer.gameObject);
-            Destroy(circleRenderer.gameObject);
+            Destroy(circle.gameObject);
             Destroy(axis.gameObject);
         }
     }

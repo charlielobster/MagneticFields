@@ -13,7 +13,7 @@ namespace MagneticFields.Geometry
             public Color color;
         };
 
-        // create 3 unit-length lines for x (red), y (green), and z (blue) axes
+        // draw 3 unit-length lines for x (red), y (green), and z (blue) axes
         public Axis()
         {
             axes = new List<LineRenderer>();
