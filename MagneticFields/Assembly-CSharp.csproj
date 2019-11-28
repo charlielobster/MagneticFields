@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\MagneticFields\Geometry\Axis.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\BoundingBox.cs" />
+    <Compile Include="Assets\MagneticFields\Geometry\Circle.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Cone.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Utils.cs" />
     <Compile Include="Assets\MagneticFields\Reading\CameraReading.cs" />

@@ -130,8 +130,7 @@ namespace MagneticFields.Geometry
         
         public void OnDestroy()
         {
-            Destroy(lineRenderer);
-            Destroy(rendererObject);
+            Destroy(lineRenderer.gameObject);
         }
 
         public void OnEnable()

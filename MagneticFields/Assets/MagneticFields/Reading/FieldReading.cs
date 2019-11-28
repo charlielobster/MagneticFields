@@ -115,9 +115,9 @@ namespace MagneticFields.Reading
 
         public void OnDestroy()
         {
-            Destroy(stem);
-            Destroy(arrowHeadBase);
-            Destroy(cone);
+            Destroy(stem.gameObject);
+            Destroy(arrowHeadBase.gameObject);
+            Destroy(cone.gameObject);
         }
     }
 }

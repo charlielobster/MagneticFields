@@ -19,10 +19,7 @@ namespace MagneticFields.Reading
 
         private LineRenderer headingRenderer;
         private LineRenderer circleRenderer;
-
-        private LineRenderer xRenderer;
-        private LineRenderer yRenderer;
-        private LineRenderer zRenderer;
+        private Axis axis;
 
         public Heading()
         {
@@ -45,15 +42,8 @@ namespace MagneticFields.Reading
                 circleRenderer.SetPosition(i, new Vector3((float)Math.Cos(theta), 0, (float)Math.Sin(theta)));
             }
 
-            xRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.red);
-            xRenderer.SetPosition(1, new Vector3(1f, 0, 0));
-            xRenderer.gameObject.transform.parent = this.gameObject.transform;
-            yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.green);
-            yRenderer.SetPosition(1, new Vector3(0, 1f, 0));
-            yRenderer.gameObject.transform.parent = this.gameObject.transform;
-            zRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.blue);
-            zRenderer.SetPosition(1, new Vector3(0, 0, 1f));
-            zRenderer.gameObject.transform.parent = this.gameObject.transform;
+            axis = new GameObject().AddComponent<Axis>();
+            axis.gameObject.transform.parent = this.gameObject.transform;
 
             this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
@@ -70,11 +60,9 @@ namespace MagneticFields.Reading
 
         public void OnDestroy()
         {
-            Destroy(headingRenderer);
-            Destroy(circleRenderer);
-            Destroy(xRenderer);
-            Destroy(yRenderer);
-            Destroy(zRenderer);
+            Destroy(headingRenderer.gameObject);
+            Destroy(circleRenderer.gameObject);
+            Destroy(axis.gameObject);
         }
     }
 }

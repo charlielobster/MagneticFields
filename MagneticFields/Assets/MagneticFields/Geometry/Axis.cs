@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace MagneticFields.Geometry
@@ -8,31 +7,35 @@ namespace MagneticFields.Geometry
     {
         private List<LineRenderer> axes;
 
+        private struct Data
+        {
+            public Vector3 vector;
+            public Color color;
+        };
+
+        // create 3 unit-length lines for x (red), y (green), and z (blue) axes
         public Axis()
         {
             axes = new List<LineRenderer>();
 
-            var xAxisObject = new GameObject();
-            xAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(Utils.InitializeLineRenderer(xAxisObject, Color.red));
-            axes[0].SetPosition(1, new Vector3(1f, 0, 0));
+            foreach (var d in new List<Data>() {
+                    new Data { vector = new Vector3(1f, 0, 0), color = Color.red },
+                    new Data { vector = new Vector3(0, 1f, 0), color = Color.green },
+                    new Data { vector = new Vector3(0, 0, 1f), color = Color.blue }
+                } ) {
 
-            var yAxisObject = new GameObject();
-            yAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(Utils.InitializeLineRenderer(yAxisObject, Color.green));
-            axes[1].SetPosition(1, new Vector3(0, 1f, 0));
-
-            var zAxisObject = new GameObject();
-            zAxisObject.transform.parent = this.gameObject.transform;
-            axes.Add(Utils.InitializeLineRenderer(zAxisObject, Color.blue));
-            axes[2].SetPosition(2, new Vector3(0, 0, 1f));
+                var a = Utils.InitializeLineRenderer(new GameObject(), d.color);
+                a.SetPosition(1, d.vector);
+                a.gameObject.transform.parent = this.gameObject.transform;
+                axes.Add(a);
+            }
         }
 
         public void OnDestroy()
         {
             foreach (var a in axes)
             {
-                Destroy(a);
+                Destroy(a.gameObject);
             }
         }
     }
