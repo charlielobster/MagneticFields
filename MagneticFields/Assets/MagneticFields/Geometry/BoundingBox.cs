@@ -8,7 +8,7 @@ namespace MagneticFields.Geometry
         private Vector3 m_center;
         private float m_unitLength;
         private Color m_color;
-        private LineRenderer lineRenderer;
+        private LineRenderer m_lineRenderer;
         private GameObject rendererObject;
 
         public BoundingBox()
@@ -16,28 +16,28 @@ namespace MagneticFields.Geometry
             m_unitLength = 1f;
             m_color = Color.white;
             rendererObject = new GameObject();
-            lineRenderer = rendererObject.AddComponent<LineRenderer>();
-            lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-            lineRenderer.material.SetColor("_Color", color);
-            lineRenderer.widthMultiplier = 0.0025f;
-            lineRenderer.useWorldSpace = false;
-            lineRenderer.positionCount = 16;
-            lineRenderer.SetPosition(0, new Vector3(-.5f, -.5f, -.5f));
-            lineRenderer.SetPosition(1, new Vector3(.5f, -.5f, -.5f));
-            lineRenderer.SetPosition(2, new Vector3(.5f, -.5f, .5f));
-            lineRenderer.SetPosition(3, new Vector3(-.5f, -.5f, .5f));
-            lineRenderer.SetPosition(4, new Vector3(-.5f, -.5f, -.5f));
-            lineRenderer.SetPosition(5, new Vector3(-.5f, .5f, -.5f));
-            lineRenderer.SetPosition(6, new Vector3(.5f, .5f, -.5f));
-            lineRenderer.SetPosition(7, new Vector3(.5f, .5f, .5f));
-            lineRenderer.SetPosition(8, new Vector3(-.5f, .5f, .5f));
-            lineRenderer.SetPosition(9, new Vector3(-.5f, .5f, -.5f));
-            lineRenderer.SetPosition(10, new Vector3(.5f, .5f, -.5f));
-            lineRenderer.SetPosition(11, new Vector3(.5f, -.5f, -.5f));
-            lineRenderer.SetPosition(12, new Vector3(.5f, -.5f, .5f));
-            lineRenderer.SetPosition(13, new Vector3(.5f, .5f, .5f));
-            lineRenderer.SetPosition(14, new Vector3(-.5f, .5f, .5f));
-            lineRenderer.SetPosition(15, new Vector3(-.5f, -.5f, .5f));
+            m_lineRenderer = rendererObject.AddComponent<LineRenderer>();
+            m_lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+            m_lineRenderer.material.SetColor("_Color", color);
+            m_lineRenderer.widthMultiplier = 0.0025f;
+            m_lineRenderer.useWorldSpace = false;
+            m_lineRenderer.positionCount = 16;
+            m_lineRenderer.SetPosition(0, new Vector3(-.5f, -.5f, -.5f));
+            m_lineRenderer.SetPosition(1, new Vector3(.5f, -.5f, -.5f));
+            m_lineRenderer.SetPosition(2, new Vector3(.5f, -.5f, .5f));
+            m_lineRenderer.SetPosition(3, new Vector3(-.5f, -.5f, .5f));
+            m_lineRenderer.SetPosition(4, new Vector3(-.5f, -.5f, -.5f));
+            m_lineRenderer.SetPosition(5, new Vector3(-.5f, .5f, -.5f));
+            m_lineRenderer.SetPosition(6, new Vector3(.5f, .5f, -.5f));
+            m_lineRenderer.SetPosition(7, new Vector3(.5f, .5f, .5f));
+            m_lineRenderer.SetPosition(8, new Vector3(-.5f, .5f, .5f));
+            m_lineRenderer.SetPosition(9, new Vector3(-.5f, .5f, -.5f));
+            m_lineRenderer.SetPosition(10, new Vector3(.5f, .5f, -.5f));
+            m_lineRenderer.SetPosition(11, new Vector3(.5f, -.5f, -.5f));
+            m_lineRenderer.SetPosition(12, new Vector3(.5f, -.5f, .5f));
+            m_lineRenderer.SetPosition(13, new Vector3(.5f, .5f, .5f));
+            m_lineRenderer.SetPosition(14, new Vector3(-.5f, .5f, .5f));
+            m_lineRenderer.SetPosition(15, new Vector3(-.5f, -.5f, .5f));
         }
 
         public Vector3 center
@@ -62,7 +62,7 @@ namespace MagneticFields.Geometry
             set
             {
                 rendererObject.transform.localScale = Vector3.one * value;
-                lineRenderer.widthMultiplier = 0.005f * value;
+                m_lineRenderer.widthMultiplier = 0.005f * value;
                 m_unitLength = value;
             }
         }
@@ -124,13 +124,13 @@ namespace MagneticFields.Geometry
             set
             {
                 m_color = value;
-                lineRenderer.material.SetColor("_Color", m_color);
+                m_lineRenderer.material.SetColor("_Color", m_color);
             }
         }
         
         public void OnDestroy()
         {
-            Destroy(lineRenderer.gameObject);
+            Destroy(m_lineRenderer.gameObject);
         }
 
         public void OnEnable()

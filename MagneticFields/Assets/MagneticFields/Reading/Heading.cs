@@ -6,55 +6,55 @@ namespace MagneticFields.Reading
 {
     public class Heading : MonoBehaviour
     {
-        private float radians;
-        private LineRenderer headingRenderer;
-        private Circle circle;
-        private Axis axis;
+        private float m_radians;
+        private LineRenderer m_headingRenderer;
+        private Circle m_circle;
+        private Axis m_axis;
 
         public Heading()
         {
-            headingRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.white);
-            headingRenderer.gameObject.transform.parent = this.gameObject.transform;
+            m_headingRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.white);
+            m_headingRenderer.gameObject.transform.parent = this.gameObject.transform;
 
-            circle = new GameObject().AddComponent<Circle>();
-            circle.gameObject.transform.parent = this.gameObject.transform;
+            m_circle = new GameObject().AddComponent<Circle>();
+            m_circle.gameObject.transform.parent = this.gameObject.transform;
 
-            axis = new GameObject().AddComponent<Axis>();
-            axis.gameObject.transform.parent = this.gameObject.transform;
+            m_axis = new GameObject().AddComponent<Axis>();
+            m_axis.gameObject.transform.parent = this.gameObject.transform;
 
             this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
       
-        public float Degrees
+        public float degrees
         {
             set
             {
-                Radians = (float)(value * PI / 180.0);
+                radians = (float)(value * PI / 180.0);
             }
             get
             {
-                return (float)(Radians * 180.0 / PI);
+                return (float)(radians * 180.0 / PI);
             }
         }
 
-        public float Radians
+        public float radians
         {
             set
             {
-                radians = value;
-                headingRenderer.SetPosition(1, new Vector3((float)Sin(-radians), 0, (float)Cos(-radians)));
+                m_radians = value;
+                m_headingRenderer.SetPosition(1, new Vector3((float)Sin(-m_radians), 0, (float)Cos(-m_radians)));
             }
             get
             {
-                return radians;
+                return m_radians;
             }
         }
 
         public void OnDestroy()
         {
-            Destroy(headingRenderer.gameObject);
-            Destroy(circle.gameObject);
-            Destroy(axis.gameObject);
+            Destroy(m_headingRenderer.gameObject);
+            Destroy(m_circle.gameObject);
+            Destroy(m_axis.gameObject);
         }
     }
 }

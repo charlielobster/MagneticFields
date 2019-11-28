@@ -5,7 +5,7 @@ namespace MagneticFields.Geometry
 {
     public class Axis : MonoBehaviour
     {
-        private List<LineRenderer> axes;
+        private List<LineRenderer> m_axes;
 
         private struct Data
         {
@@ -16,7 +16,7 @@ namespace MagneticFields.Geometry
         // draw 3 unit-length lines for x (red), y (green), and z (blue) axes
         public Axis()
         {
-            axes = new List<LineRenderer>();
+            m_axes = new List<LineRenderer>();
 
             foreach (var d in new List<Data>() {
                     new Data { vector = new Vector3(1f, 0, 0), color = Color.red },
@@ -27,13 +27,13 @@ namespace MagneticFields.Geometry
                 var a = Utils.InitializeLineRenderer(new GameObject(), d.color);
                 a.SetPosition(1, d.vector);
                 a.gameObject.transform.parent = this.gameObject.transform;
-                axes.Add(a);
+                m_axes.Add(a);
             }
         }
 
         public void OnDestroy()
         {
-            foreach (var a in axes)
+            foreach (var a in m_axes)
             {
                 Destroy(a.gameObject);
             }
