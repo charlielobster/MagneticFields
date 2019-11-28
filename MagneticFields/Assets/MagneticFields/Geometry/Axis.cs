@@ -9,6 +9,7 @@ namespace MagneticFields.Geometry
 
         private struct Data
         {
+            public Data(Vector3 v, Color c) { vector = v; color = c; }
             public Vector3 vector;
             public Color color;
         };
@@ -18,12 +19,14 @@ namespace MagneticFields.Geometry
         {
             m_axes = new List<LineRenderer>();
 
-            foreach (var d in new List<Data>() {
-                    new Data { vector = new Vector3(1f, 0, 0), color = Color.red },
-                    new Data { vector = new Vector3(0, 1f, 0), color = Color.green },
-                    new Data { vector = new Vector3(0, 0, 1f), color = Color.blue }
-                } ) {
+            var l = new List<Data>()
+            {
+                new Data(new Vector3(1f, 0, 0), Color.red),
+                new Data(new Vector3(0, 1f, 0), Color.green),
+                new Data(new Vector3(0, 0, 1f), Color.blue)
+            };
 
+            foreach (var d in l) {
                 var a = Utils.InitializeLineRenderer(new GameObject(), d.color);
                 a.SetPosition(1, d.vector);
                 a.gameObject.transform.parent = this.gameObject.transform;

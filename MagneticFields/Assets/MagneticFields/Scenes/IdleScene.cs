@@ -13,10 +13,8 @@ namespace MagneticFields.Scenes
         private Heading heading;
         private CameraReading cameraReading;
         private LineReading lineReading;
-
         private Light directionalLight;
         
-        private float magneticHeading;
         private Vector3 rawVector;
 
         public const double IDLE_TIME = 1e8; // 10,000,000 Ticks a second
@@ -34,7 +32,6 @@ namespace MagneticFields.Scenes
             debug = GameObject.Find("Debug").GetComponent<Text>();
             debug.text += "Awaking Idle\n";
 
-            magneticHeading = Input.compass.magneticHeading;
             lastUpdated = DateTime.Now;
         }
 
@@ -48,9 +45,8 @@ namespace MagneticFields.Scenes
             {
                 rawVector = Input.compass.rawVector;
                 rawVector.z = -rawVector.z;              
-                magneticHeading = Input.compass.magneticHeading;
                 
-                heading.degrees = magneticHeading;
+                heading.degrees = Input.compass.magneticHeading;
                 heading.gameObject.transform.rotation = transform.rotation;
 
                 var t = new Vector2((float)(Math.Sqrt(rawVector.x * rawVector.x + rawVector.z * rawVector.z)), rawVector.y);
@@ -66,7 +62,7 @@ namespace MagneticFields.Scenes
                 cameraReading.gameObject.transform.rotation = transform.rotation * q;
                 cameraReading.Reading = rawVector;
 
-                lineReading.Reading = rawVector;
+                lineReading.reading = rawVector;
                 lineReading.gameObject.transform.rotation = transform.rotation;
 
                 //  switch (Input.deviceOrientation)
@@ -89,16 +85,13 @@ namespace MagneticFields.Scenes
             }
             
             lineReading.gameObject.transform.position = position;
-
             heading.gameObject.transform.position = position;
-
             cameraReading.gameObject.transform.position = position;
-
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
             var output = String.Empty;
             output += String.Format("{0}\n", Utils.DebugVector("compass", rawVector));
-            output += String.Format("magneticHeading: {0,10:00.00}\n", magneticHeading);
+            output += String.Format("magneticHeading: {0,10:00.00}\n", heading.degrees);
             debug.text = output;
         }
     }
