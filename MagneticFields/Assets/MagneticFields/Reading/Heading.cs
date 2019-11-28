@@ -25,12 +25,28 @@ namespace MagneticFields.Reading
             this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
       
-        public float Angle
+        public float Degrees
         {
             set
             {
-                radians = (float)(value * PI / 180.0);
+                Radians = (float)(value * PI / 180.0);
+            }
+            get
+            {
+                return (float)(Radians * 180.0 / PI);
+            }
+        }
+
+        public float Radians
+        {
+            set
+            {
+                radians = value;
                 headingRenderer.SetPosition(1, new Vector3((float)Sin(-radians), 0, (float)Cos(-radians)));
+            }
+            get
+            {
+                return radians;
             }
         }
 

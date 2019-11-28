@@ -50,7 +50,7 @@ namespace MagneticFields.Scenes
                 rawVector.z = -rawVector.z;              
                 magneticHeading = Input.compass.magneticHeading;
                 
-                heading.Angle = magneticHeading;
+                heading.Degrees = magneticHeading;
                 heading.gameObject.transform.rotation = transform.rotation;
 
                 var t = new Vector2((float)(Math.Sqrt(rawVector.x * rawVector.x + rawVector.z * rawVector.z)), rawVector.y);
