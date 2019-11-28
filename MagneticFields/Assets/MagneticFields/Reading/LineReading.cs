@@ -6,40 +6,38 @@ namespace MagneticFields.Reading
     public class LineReading : MonoBehaviour
     {
         private Vector3 m_reading;
-        private LineRenderer readingRenderer;
-        private LineRenderer yRenderer;
-        private LineRenderer xzRenderer;
+        private LineRenderer m_readingRenderer;
+        private LineRenderer m_yRenderer;
+        private LineRenderer m_xzRenderer;
 
         public LineReading()
         {
-            readingRenderer = Utils.InitializeLineRenderer(this.gameObject, Color.magenta);
+            m_readingRenderer = Utils.InitializeLineRenderer(this.gameObject, Color.magenta);
 
-            var yObject = new GameObject();
-            yObject.transform.parent = this.gameObject.transform;
-            yRenderer = Utils.InitializeLineRenderer(yObject, Color.magenta);
-            var xzObject = new GameObject();
-            xzObject.transform.parent = this.gameObject.transform;
-            xzRenderer = Utils.InitializeLineRenderer(xzObject, Color.magenta);
+            m_yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
+            m_yRenderer.gameObject.transform.parent = this.gameObject.transform;
+            m_xzRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
+            m_xzRenderer.gameObject.transform.parent = this.gameObject.transform;
         }
 
-        public Vector3 reading
+        public Vector3 rawVector
         {
             set
             {
                 m_reading = value;
                 m_reading.Normalize();
-                readingRenderer.SetPosition(1, m_reading);
-                yRenderer.SetPosition(1, new Vector3(0, m_reading.y, 0));
-                xzRenderer.SetPosition(1, new Vector3(m_reading.x, 0, m_reading.z));
+                m_readingRenderer.SetPosition(1, m_reading);
+                m_yRenderer.SetPosition(1, new Vector3(0, m_reading.y, 0));
+                m_xzRenderer.SetPosition(1, new Vector3(m_reading.x, 0, m_reading.z));
             }
-            get { return readingRenderer.GetPosition(1); }
+            get { return m_readingRenderer.GetPosition(1); }
         }
                 
         public void OnDestroy()
         {
-            Destroy(readingRenderer.gameObject);
-            Destroy(yRenderer.gameObject);
-            Destroy(xzRenderer.gameObject);
+            Destroy(m_readingRenderer.gameObject);
+            Destroy(m_yRenderer.gameObject);
+            Destroy(m_xzRenderer.gameObject);
         }
     }
 }

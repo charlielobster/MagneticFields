@@ -49,6 +49,9 @@ namespace MagneticFields.Scenes
                 heading.degrees = Input.compass.magneticHeading;
                 heading.gameObject.transform.rotation = transform.rotation;
 
+                lineReading.rawVector = rawVector;
+                lineReading.gameObject.transform.rotation = transform.rotation;
+
                 var t = new Vector2((float)(Math.Sqrt(rawVector.x * rawVector.x + rawVector.z * rawVector.z)), rawVector.y);
                 t.Normalize();
                 var ang = -(float)(Math.Asin(t.y) * (180.0 / Math.PI));
@@ -61,9 +64,6 @@ namespace MagneticFields.Scenes
                 q = Quaternion.Euler(0, -angle, 0) * q;
                 cameraReading.gameObject.transform.rotation = transform.rotation * q;
                 cameraReading.Reading = rawVector;
-
-                lineReading.reading = rawVector;
-                lineReading.gameObject.transform.rotation = transform.rotation;
 
                 //  switch (Input.deviceOrientation)
                 //  {
