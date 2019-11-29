@@ -11,13 +11,13 @@ namespace MagneticFields.Scenes
         private Text debug;
 
         private Heading heading;
-        private CameraReading cameraReading;
+       // private CameraReading cameraReading;
         private LineReading lineReading;
         private Light directionalLight;
         
         private Vector3 rawVector;
 
-        public const double IDLE_TIME = 1e8; // 10,000,000 Ticks a second
+        public const double IDLE_TIME = 4e7; // 1e7 Ticks a second
         private DateTime lastUpdated;
 
         void Awake()
@@ -25,7 +25,7 @@ namespace MagneticFields.Scenes
             directionalLight = new GameObject().AddComponent<Light>();
             directionalLight.type = LightType.Directional;
 
-            cameraReading = new GameObject().AddComponent<CameraReading>();
+        //    cameraReading = new GameObject().AddComponent<CameraReading>();
             lineReading = new GameObject().AddComponent<LineReading>();
             heading = new GameObject().AddComponent<Heading>();
 
@@ -62,8 +62,8 @@ namespace MagneticFields.Scenes
                 if (s.y > 0) angle = -angle;
                 var q = Quaternion.Euler(90f + ang, 0, 0);
                 q = Quaternion.Euler(0, -angle, 0) * q;
-                cameraReading.gameObject.transform.rotation = transform.rotation * q;
-                cameraReading.Reading = rawVector;
+          //      cameraReading.gameObject.transform.rotation = transform.rotation * q;
+          //      cameraReading.Reading = rawVector;
 
                 //  switch (Input.deviceOrientation)
                 //  {
@@ -86,7 +86,7 @@ namespace MagneticFields.Scenes
             
             lineReading.gameObject.transform.position = position;
             heading.gameObject.transform.position = position;
-            cameraReading.gameObject.transform.position = position;
+        //    cameraReading.gameObject.transform.position = position;
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
             var output = String.Empty;
