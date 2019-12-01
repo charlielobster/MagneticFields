@@ -1,18 +1,32 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MagneticFields.Geometry
 {
     public static class Utils
     {
-        public static String DebugVector(string name, Vector3 v)
+        public static String DebugVector(string name, Vector3 vector)
         {
-            return (name + ".x:" + String.Format("{0,10:00.00}", v.x) +
-                "\n" + name + ".y:" + String.Format("{0,10:00.00}", v.y) +
-                "\n" + name + ".z:" + String.Format("{0,10:00.00}", v.z) +
-                "\nmagnitude: " + String.Format("{0,10:00.00}", v.magnitude) + "\n");
+            return (name + ".x:" + String.Format("{0,10:00.00}", vector.x) +
+                "\n" + name + ".y:" + String.Format("{0,10:00.00}", vector.y) +
+                "\n" + name + ".z:" + String.Format("{0,10:00.00}", vector.z) +
+                "\nmagnitude: " + String.Format("{0,10:00.00}", vector.magnitude) + "\n");
+        }
+
+        public static String DebugTransform(string name, Transform transform)
+        {
+            return String.Format("transform {0}\n{1}\n{2}\n{3}\n", name,
+                DebugQuaternion("rotation", transform.rotation), 
+                DebugVector("position", transform.position),
+                DebugVector("scale", transform.localScale));
+        }
+
+        public static String DebugQuaternion(string name, Quaternion quaternion)
+        {
+            return (name + ".x:" + String.Format("{0,10:00.00}", quaternion.x) +
+              "\n" + name + ".y:" + String.Format("{0,10:00.00}", quaternion.y) +
+              "\n" + name + ".z:" + String.Format("{0,10:00.00}", quaternion.z) +
+              "\n" + name + ".w:" + String.Format("{0,10:00.00}", quaternion.w) + "\n");
         }
 
         public static Quaternion RotateA2B(Vector3 a, Vector3 b)

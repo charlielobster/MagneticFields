@@ -1,54 +1,50 @@
 ﻿using UnityEngine;
 using MagneticFields.Geometry;
+using System;
 
 namespace MagneticFields.Reading
 {
-    public class LineReading : MonoBehaviour
+    public class LineReading : Reading
     {
-        private Vector3 m_reading;
-        private Vector2 m_xz;
-        private LineRenderer m_readingRenderer;
+        private LineRenderer m_rawVectorRenderer;
         private LineRenderer m_yRenderer;
         private LineRenderer m_xzRenderer;
 
-        public LineReading()
+        public new void Start()
         {
-            m_readingRenderer = Utils.InitializeLineRenderer(this.gameObject, Color.magenta);
+            base.Start();
+            m_rawVectorRenderer = Utils.InitializeLineRenderer(m_root, Color.magenta);
 
             m_yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
-            m_yRenderer.gameObject.transform.parent = this.gameObject.transform;
+            m_yRenderer.gameObject.transform.parent = m_root.transform;
 
             m_xzRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
-            m_xzRenderer.gameObject.transform.parent = this.gameObject.transform;
+            m_xzRenderer.gameObject.transform.parent = m_root.transform;
 
             m_xzRenderer.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
 
-        public Vector3 rawVector
+        public new void Set(Vector3 rawVector, Quaternion rotation, Vector3 position, DateTime dateTime)
         {
-            set
-            {
-                m_reading = value;
-                m_reading.Normalize();
-                m_readingRenderer.SetPosition(1, m_reading);
+            base.Set(rawVector, rotation, position, dateTime);
+            var normalized = m_rawVector.normalized;
+            m_rawVectorRenderer.SetPosition(1, normalized);
 
-                m_xz = new Vector2(m_reading.x, m_reading.z);
-                m_xz.Normalize();
-                m_xzRenderer.SetPosition(1, new Vector3(m_xz.x, 0, m_xz.y));
+            var xz = new Vector2(m_rawVector.x, m_rawVector.z);
+            xz.Normalize();
+            m_xzRenderer.SetPosition(1, new Vector3(xz.x, 0, xz.y));
 
-                m_yRenderer.SetPosition(1, new Vector3(0, m_reading.y, 0));
-            }
-            get
-            {
-                return m_readingRenderer.GetPosition(1);
-            }
+            m_yRenderer.SetPosition(1, new Vector3(0, normalized.y, 0));
         }
                 
-        public void OnDestroy()
+        public new void OnDestroy()
         {
-            Destroy(m_readingRenderer.gameObject);
+            Destroy(m_rawVectorRenderer.gameObject);
             Destroy(m_yRenderer.gameObject);
             Destroy(m_xzRenderer.gameObject);
+            base.OnDestroy();
         }
     }
 }
+
+

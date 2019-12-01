@@ -65,8 +65,8 @@ namespace MagneticFields.Reading
                 Vector3 a = new Vector3(0, 1f, 0);
                 var b = reading.normalized;
                 Quaternion q = Utils.RotateA2B(a, b);
-                this.gameObject.transform.rotation = q;
-                this.gameObject.transform.localScale = 
+                gameObject.transform.rotation = q;
+                gameObject.transform.localScale = 
                     new Vector3(.3f, .075f * (float)Math.Log(reading.magnitude), .3f);
                 //canvas.Text = Utils.DebugVector("reading", this.reading) +
                 //    "\n" + Utils.DebugVector("position", this.position);
@@ -79,7 +79,7 @@ namespace MagneticFields.Reading
             set
             {
                 position = value;
-                this.gameObject.transform.position = position;
+                gameObject.transform.position = position;
                 //axis.Translate(position);
                 //canvasObject.transform.position = position;
             }

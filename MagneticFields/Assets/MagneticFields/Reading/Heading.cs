@@ -14,15 +14,15 @@ namespace MagneticFields.Reading
         public Heading()
         {
             m_headingRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.white);
-            m_headingRenderer.gameObject.transform.parent = this.gameObject.transform;
+            m_headingRenderer.gameObject.transform.parent = gameObject.transform;
 
             m_circle = new GameObject().AddComponent<Circle>();
-            m_circle.gameObject.transform.parent = this.gameObject.transform;
+            m_circle.gameObject.transform.parent = gameObject.transform;
 
             m_axis = new GameObject().AddComponent<Axis>();
-            m_axis.gameObject.transform.parent = this.gameObject.transform;
+            m_axis.gameObject.transform.parent = gameObject.transform;
 
-            this.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
+            gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
       
         public float degrees
@@ -42,7 +42,8 @@ namespace MagneticFields.Reading
             set
             {
                 m_radians = value;
-                m_headingRenderer.SetPosition(1, new Vector3((float)Sin(-m_radians), 0, (float)Cos(-m_radians)));
+                m_headingRenderer.SetPosition(1, 
+                    new Vector3((float)Sin(-m_radians), 0, (float)Cos(-m_radians)));
             }
             get
             {
