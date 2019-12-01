@@ -6,6 +6,13 @@ namespace MagneticFields.Reading
 {
     public abstract class Reading : MonoBehaviour
     {
+        protected GameObject m_root;
+        protected Vector3 m_rawVector;
+        protected Quaternion m_rotation;
+        protected Vector3 m_position;
+        protected Color m_color;
+        protected DateTime m_dateTime;
+
         public static Color GetColorForVector(Vector3 vector)
         {
             const float MAX = 500f;
@@ -44,12 +51,5 @@ namespace MagneticFields.Reading
                 DebugVector("position", m_position),
                 m_dateTime.ToShortTimeString());
         }
-
-        protected GameObject m_root;
-        protected Vector3 m_rawVector;
-        protected Quaternion m_rotation;
-        protected Vector3 m_position;
-        protected Color m_color;
-        protected DateTime m_dateTime;
     }
 }
