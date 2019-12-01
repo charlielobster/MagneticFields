@@ -67,10 +67,7 @@ namespace MagneticFields.Scenes
                 heading.gameObject.transform.rotation = transform.rotation;
                 heading.degrees = Input.compass.magneticHeading;
 
-//                lineReading.gameObject.transform.rotation = transform.rotation;
-
                 lineReading.Set(rawVector, transform.rotation, transform.position, DateTime.Now);
-
                 shapeReading.Set(rawVector, transform.rotation, transform.position, DateTime.Now);
 
                 lastUpdated = DateTime.UtcNow;
