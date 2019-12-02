@@ -13,7 +13,7 @@ namespace MagneticFields.Reading
         public new void Start()
         {
             base.Start();
-            m_rawVectorRenderer = Utils.InitializeLineRenderer(m_root, Color.magenta);
+            m_rawVectorRenderer = Utils.InitializeLineRenderer(m_root, m_color);
 
             m_yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
             m_yRenderer.gameObject.transform.parent = m_root.transform;
@@ -24,11 +24,12 @@ namespace MagneticFields.Reading
             m_xzRenderer.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
 
-        public new void Set(Vector3 rawVector, Quaternion rotation, Vector3 position, DateTime dateTime)
+        protected override void Set(float heading, Vector3 rawVector, Quaternion rotation, Vector3 position, DeviceOrientation orientation, DateTime dateTime)
         {
-            base.Set(rawVector, rotation, position, dateTime);
+            base.Set(heading, rawVector, rotation, position, orientation, dateTime);
             var normalized = m_rawVector.normalized;
             m_rawVectorRenderer.SetPosition(1, normalized);
+            m_rawVectorRenderer.material.SetColor("_Color", m_color);
 
             var xz = new Vector2(m_rawVector.x, m_rawVector.z);
             xz.Normalize();

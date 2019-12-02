@@ -13,9 +13,10 @@ namespace MagneticFields.Reading
         private GameObject m_stem;
         private GameObject m_arrowHeadBase;
 
-        public new void Set(Vector3 rawVector, Quaternion rotation, Vector3 position, DateTime dateTime)
+        protected override void Set(float heading, Vector3 rawVector, Quaternion rotation, 
+            Vector3 position, DeviceOrientation orientation, DateTime dateTime)
         {
-            base.Set(rawVector, rotation, position, dateTime);
+            base.Set(heading, rawVector, rotation, position, orientation, dateTime);
 
             m_vectorMaterial.SetColor("_Color", m_color);
 

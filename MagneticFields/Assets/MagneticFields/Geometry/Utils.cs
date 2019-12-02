@@ -5,6 +5,10 @@ namespace MagneticFields.Geometry
 {
     public static class Utils
     {
+        public static String DebugFloat(string name, float f)
+        {
+            return String.Format("{0}: {1,10:00.00}", name, f);
+        }
         public static String DebugVector(string name, Vector3 vector)
         {
             return (name + ".x:" + String.Format("{0,10:00.00}", vector.x) +

@@ -46,29 +46,11 @@ namespace MagneticFields.Scenes
             var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
             if (elapsedTicks > IDLE_TIME)
             {
-                rawVector = Input.compass.rawVector;
-
-                // the rawVector's coordinates are affected by deviceOrientation
-                switch (Input.deviceOrientation)
-                {
-                    case DeviceOrientation.Portrait:
-                    case DeviceOrientation.PortraitUpsideDown:
-                    case DeviceOrientation.LandscapeLeft:
-                    case DeviceOrientation.LandscapeRight:
-                    case DeviceOrientation.FaceDown:
-                    case DeviceOrientation.FaceUp:
-                    case DeviceOrientation.Unknown:
-                    default:
-                        // upright (normal) portait mode, must correct for -z values           
-                        rawVector.z = -rawVector.z; 
-                        break;
-                }
-                
                 heading.gameObject.transform.rotation = transform.rotation;
                 heading.degrees = Input.compass.magneticHeading;
 
-                lineReading.Set(rawVector, transform.rotation, transform.position, DateTime.Now);
-                shapeReading.Set(rawVector, transform.rotation, transform.position, DateTime.Now);
+                lineReading.Set(Input.compass, transform, Input.deviceOrientation);
+                shapeReading.Set(Input.compass, transform, Input.deviceOrientation);
 
                 lastUpdated = DateTime.UtcNow;
             }
