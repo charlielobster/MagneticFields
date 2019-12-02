@@ -37,20 +37,22 @@ namespace MagneticFields.Scenes
 
         void Update()
         {
-            var transform = Camera.current.transform;
-
             // calculate location to place virtual objects directly in front of the camera
+            var transform = Camera.current.transform;
             var position = transform.position + transform.forward * 2.5f;
 
             // only change things if time has elapsed
             var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
             if (elapsedTicks > IDLE_TIME)
             {
-                heading.gameObject.transform.rotation = transform.rotation;
-                heading.degrees = Input.compass.magneticHeading;
+                var compass = Input.compass;
+                var orientation = Input.deviceOrientation;
 
-                lineReading.Set(Input.compass, transform, Input.deviceOrientation);
-                shapeReading.Set(Input.compass, transform, Input.deviceOrientation);
+                heading.gameObject.transform.rotation = transform.rotation;
+                heading.degrees = compass.magneticHeading;
+
+                lineReading.Set(compass, transform, orientation);
+                shapeReading.Set(compass, transform, orientation);
 
                 lastUpdated = DateTime.UtcNow;
             }

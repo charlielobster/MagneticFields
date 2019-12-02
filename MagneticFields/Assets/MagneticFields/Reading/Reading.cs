@@ -138,7 +138,7 @@ namespace MagneticFields.Reading
         public override String ToString()
         {
             return String.Format(
-                "Reading:\n{0}\n{1}\n{2}\n{3}\n{4}\nTimestamp: {5}\n",
+                "Reading:\n{0}\n{1}\n{2}\n{3}\n{4}\nUpdated:{5}\n",
                 DebugFloat("heading", heading),
                 DebugVector("rawVector", rawVector),
                 DebugQuaternion("rotation",rotation),
