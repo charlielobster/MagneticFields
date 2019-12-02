@@ -6,14 +6,78 @@ namespace MagneticFields.Reading
 {
     public abstract class Reading : MonoBehaviour
     {
-        protected GameObject m_root;
-        protected float m_heading;
-        protected Vector3 m_rawVector;
-        protected Quaternion m_rotation;
-        protected Vector3 m_position;
-        protected DeviceOrientation m_orientation;
-        protected Color m_color;
-        protected DateTime m_dateTime;
+        private GameObject m_root;
+        private float m_heading;
+        private Vector3 m_rawVector;
+        private Quaternion m_rotation;
+        private Vector3 m_position;
+        private DeviceOrientation m_orientation;
+        private Color m_color;
+        private DateTime m_dateTime;
+
+        public float heading
+        {
+            get
+            {
+                return m_heading;
+            }
+        }
+
+        public Vector3 rawVector
+        {
+            get
+            {
+                return m_rawVector;
+            }
+        }
+
+        public Quaternion rotation
+        {
+            get
+            {
+                return m_rotation;
+            }
+        }
+
+        public Vector3 position
+        {
+            get
+            {
+                return m_position;
+            }
+        }
+
+        public DeviceOrientation orientation
+        {
+            get
+            {
+                return m_orientation;
+            }
+        }
+
+        public Color color
+        {
+            get
+            {
+                return m_color;
+            }
+        }
+
+        public DateTime dateTime
+        {
+            get
+            {
+                return m_dateTime;
+            }
+        }
+
+        protected GameObject root
+        {
+            get
+            {
+                return m_root;
+            }
+        }
 
         public static Color GetColorForVector(Vector3 vector)
         {
@@ -23,19 +87,17 @@ namespace MagneticFields.Reading
             return new Color(r, g, 0.34f);
         }
         
-        public void Set(Compass compass, Transform transform, DeviceOrientation orientation)
+        public virtual void Set(Compass compass, Transform transform, DeviceOrientation orientation)
         {
             Set(compass.magneticHeading, compass.rawVector, transform.rotation, 
                 transform.position, orientation, DateTime.UtcNow);
         }
 
-        protected virtual void Set(float heading, Vector3 rawVector, Quaternion rotation, 
+        private void Set(float heading, Vector3 rawVector, Quaternion rotation, 
             Vector3 position, DeviceOrientation orientation, DateTime dateTime)
         {
             m_heading = heading;
             m_rawVector = rawVector;
-
-            rawVector = Input.compass.rawVector;
 
             // the rawVector's coordinates are affected by deviceOrientation
             m_orientation = orientation;
@@ -49,7 +111,7 @@ namespace MagneticFields.Reading
                 case DeviceOrientation.FaceUp:
                 case DeviceOrientation.Unknown:
                 default:
-                    // upright (normal) portait mode, must correct for -z values           
+                    // portait mode, correct for -z values?         
                     m_rawVector.z = -m_rawVector.z;
                     break;
             }
@@ -77,12 +139,12 @@ namespace MagneticFields.Reading
         {
             return String.Format(
                 "Reading:\n{0}\n{1}\n{2}\n{3}\n{4}\nTimestamp: {5}\n",
-                DebugFloat("heading", m_heading),
-                DebugVector("rawVector", m_rawVector),
-                DebugQuaternion("rotation", m_rotation),
-                DebugVector("position", m_position),
-                m_orientation.ToString(),
-                m_dateTime.ToLongTimeString());
+                DebugFloat("heading", heading),
+                DebugVector("rawVector", rawVector),
+                DebugQuaternion("rotation",rotation),
+                DebugVector("position", position),
+                orientation.ToString(),
+                dateTime.ToLongTimeString());
         }
     }
 }
