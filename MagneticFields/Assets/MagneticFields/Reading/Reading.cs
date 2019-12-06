@@ -97,22 +97,30 @@ namespace MagneticFields.Reading
             Vector3 position, DeviceOrientation orientation, DateTime dateTime)
         {
             m_heading = heading;
-            m_rawVector = rawVector;
 
             // the rawVector's coordinates are affected by deviceOrientation
             m_orientation = orientation;
             switch (m_orientation)
             {
-                case DeviceOrientation.Portrait:
-                case DeviceOrientation.PortraitUpsideDown:
                 case DeviceOrientation.LandscapeLeft:
+                    m_rawVector = new Vector3(-rawVector.y, rawVector.x, -rawVector.z);
+                    break;
                 case DeviceOrientation.LandscapeRight:
-                case DeviceOrientation.FaceDown:
+                    m_rawVector = new Vector3(rawVector.y, -rawVector.x, -rawVector.z);
+                    break;
                 case DeviceOrientation.FaceUp:
+                    m_rawVector = new Vector3(rawVector.x, rawVector.z, rawVector.y);
+                    break;
+                case DeviceOrientation.PortraitUpsideDown:
+                    m_rawVector = new Vector3(-rawVector.x, -rawVector.y, -rawVector.z);
+                    break;
+                case DeviceOrientation.Portrait:
+                    // portait mode, correct for -z values?         
+                    m_rawVector = new Vector3(rawVector.x, rawVector.y, -rawVector.z);
+                    break;
+                case DeviceOrientation.FaceDown:
                 case DeviceOrientation.Unknown:
                 default:
-                    // portait mode, correct for -z values?         
-                    m_rawVector.z = -m_rawVector.z;
                     break;
             }
 

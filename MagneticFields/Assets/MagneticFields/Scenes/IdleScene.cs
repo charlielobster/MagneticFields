@@ -64,8 +64,6 @@ namespace MagneticFields.Scenes
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
             var output = String.Empty;
-            //output += String.Format("{0}\n", Utils.DebugVector("rawVector", rawVector));
-            //output += String.Format("heading.degrees: {0,10:00.00}\n", heading.degrees);
             output += shapeReading.ToString();
             debug.text = output;
         }
