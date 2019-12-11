@@ -2,13 +2,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MagneticFields.Reading;
-using MagneticFields.Geometry;
 
 namespace MagneticFields.Scenes
 {
     public class IdleScene : MonoBehaviour
     {
-        public const double IDLE_TIME = 4e7; // 1e7 Ticks a second
+        public const double IDLE_TIME = 1e5; // 1e7 Ticks a second
 
         private Text debug;
 
@@ -29,8 +28,8 @@ namespace MagneticFields.Scenes
             lineReading = new GameObject().AddComponent<LineReading>();
             heading = new GameObject().AddComponent<Heading>();
 
-            debug = GameObject.Find("Debug").GetComponent<Text>();
-            debug.text += "Awaking Idle\n";
+            //debug = GameObject.Find("Debug").GetComponent<Text>();
+            //debug.text += "Awaking Idle\n";
 
             lastUpdated = DateTime.Now;
         }
@@ -63,9 +62,9 @@ namespace MagneticFields.Scenes
             shapeReading.gameObject.transform.position = position;
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
-            var output = String.Empty;
-            output += shapeReading.ToString();
-            debug.text = output;
+            //var output = String.Empty;
+            //output += shapeReading.ToString();
+            //debug.text = output;
         }
     }
 }

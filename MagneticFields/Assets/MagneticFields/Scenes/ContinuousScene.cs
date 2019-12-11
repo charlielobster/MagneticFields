@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Threading;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 using MagneticFields.Geometry;
 using MagneticFields.Reading;
 using KdTree;

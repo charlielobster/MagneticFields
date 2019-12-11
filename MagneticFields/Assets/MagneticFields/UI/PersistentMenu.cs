@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace MagneticFields.UI
 {
-    public class PersistentMenu : MonoBehaviour
+    public class PersistentMenu : SwipeComponent
     {
         private Dropdown sceneDropdown;
         private Text debug;
@@ -18,8 +18,10 @@ namespace MagneticFields.UI
             Place
         }
 
-        void Awake()
+        public override void Awake()
         {
+            base.Awake();
+
             GameObject[] objs = GameObject.FindGameObjectsWithTag("PersistentMenu");
 
             if (objs.Length > 1)
@@ -48,11 +50,19 @@ namespace MagneticFields.UI
             OnSceneChanged(sceneDropdown);
         }
 
+        public override void Update()
+        {
+            base.Update();
+        }
+
+
         void OnSceneChanged(Dropdown dropdown)
         {
             var sceneName = string.Format("{0}Scene", ((Scene)dropdown.value).ToString("g"));
             SceneManager.LoadScene(sceneName);
         }
+
+
     }
 }
 

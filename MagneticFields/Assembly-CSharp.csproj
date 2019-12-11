@@ -76,6 +76,7 @@
     <Compile Include="Assets\MagneticFields\Scenes\IdleScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\PlaceScene.cs" />
     <Compile Include="Assets\MagneticFields\UI\PersistentMenu.cs" />
+    <Compile Include="Assets\MagneticFields\UI\SwipeComponent.cs" />
     <Compile Include="Assets\MagneticFields\UI\WorldCanvas.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

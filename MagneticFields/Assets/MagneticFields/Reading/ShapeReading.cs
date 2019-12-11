@@ -24,7 +24,6 @@ namespace MagneticFields.Reading
                 rawVector.y);
             xz_y.Normalize();
             var phi = -(float)(Asin(xz_y.y) * 180.0 / PI);
-            if (xz_y.y > 0) phi = -phi;
 
             var zx = new Vector2(rawVector.z, rawVector.x);
             zx.Normalize();
