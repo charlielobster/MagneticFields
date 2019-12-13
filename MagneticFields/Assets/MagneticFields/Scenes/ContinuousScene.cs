@@ -124,7 +124,8 @@ namespace MagneticFields.Scenes
             if (reading)
             {
                 readButton.GetComponentInChildren<Text>().text = "Stop";
-            } else
+            }
+            else
             {
                 readButton.GetComponentInChildren<Text>().text = "Read";
             }
@@ -135,7 +136,7 @@ namespace MagneticFields.Scenes
             reading = false;
             gridHidden = false;
             unitSlider.value = unitLength;
-            debug.text = "Awaking Continuous";
+            debug.text = "Awaking Continuous Scene";
             unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
             resetButton.onClick.AddListener(OnResetButtonClicked);
             readButton.onClick.AddListener(OnReadButtonClicked);
@@ -216,63 +217,7 @@ namespace MagneticFields.Scenes
                 nextPosition[i] *= unitLength;
             }
             return nextPosition;
-        }
-
-        //private void ReadScene()
-        //{
-        //    try
-        //    {
-        //        debug.text = "";
-
-
-        //           /*
-        //        //    if (rootBoundingBoxObject == null && rootBoundingBox == null)
-        //        //    {
-        //        //        rootBoundingBoxObject = new GameObject();
-        //        //        rootBoundingBox = rootBoundingBoxObject.AddComponent<BoundingBox>();
-        //        //        rootBoundingBox.center = Vector3.zero;
-        //        //        rootBoundingBox.unitLength = unitLength;
-        //        //        rootBoundingBox.widthMultiplier = 0.0025f;
-        //        //        var fo = new GameObject();
-        //        //        var fr = fo.AddComponent<FieldReading>();
-        //        //        fr.Position = Vector3.zero;
-        //        //        fr.Reading = Input.compass.rawVector;
-        //        //        fo.transform.localScale *= unitLength;
-        //        //        rootBoundingBox.color = fr.Color;
-        //        //    }
-        //        //    var nearestBoundingBox = rootBoundingBox.FindNearest(position);
-        //        //    debug.text = ("\n" + Utils.DebugVector("position", position) + "\n");
-        //        //    debug.text += ("\n" + Utils.DebugVector("nearest", nearestBoundingBox.center) + "\n");
-        //        //    if (!nearestBoundingBox.BoundedBy(position))
-        //        //    {
-        //        //       //debug.text += ("\n" + Utils.DebugVector("currentPosition", currentPosition) + "\n is not bounded by \n"  + Utils.DebugVector("nearestBoundingBox", nearestBoundingBox.center) + "\n");
-        //        //        var newCenter = position / (.5f * unitLength);
-        //        //        newCenter = new Vector3(
-        //        //            (float)Math.Floor(newCenter[0]),
-        //        //            (float)Math.Floor(newCenter[1]),
-        //        //            (float)Math.Floor(newCenter[2]));                        
-        //        //        debug.text += ("\nattempting to add\n" + Utils.DebugVector("newCenter", newCenter) + "\n");
-        //        //        var bb = nearestBoundingBox.Insert(newCenter);
-        //        //        bb.unitLength = unitLength;
-        //        //        bb.widthMultiplier = 0.0025f;
-        //        //        //var fo = new GameObject();
-        //        //        //var fr = fo.AddComponent<FieldReading>();
-        //        //        //fr.Position = newCenter;
-        //        //        //fr.Reading = Input.compass.rawVector;
-        //        //        //fo.transform.localScale *= unitLength;
-        //        //        //bb.color = fr.Color;
-        //            //}
-        //            */
-
-        //      //  }
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        debug.text += ("\n" + e.ToString() + "\n");
-        //    }
-        //}
-
+        }        
     }
 }
 

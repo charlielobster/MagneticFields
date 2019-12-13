@@ -5,7 +5,7 @@ namespace MagneticFields.UI
 {
     public class SwipeComponent : MonoBehaviour
     {
-        private Text debug;
+        //private Text debug;
         public static float SWIPE_THRESHOLD = 20f;
 
         protected Vector2 fingerDown;
@@ -14,8 +14,8 @@ namespace MagneticFields.UI
 
         public virtual void Awake()
         {
-            debug = GameObject.Find("Debug").GetComponent<Text>();
-            debug.text += "Awaking SwipeScene\n";
+            //debug = GameObject.Find("Debug").GetComponent<Text>();
+            //debug.text += "Awaking SwipeScene\n";
         }
 
         // Update is called once per frame
@@ -111,14 +111,14 @@ namespace MagneticFields.UI
 
         public virtual void OnSwipeLeft()
         {
-            var output = "OnSwipeLeft";
-            debug.text = output;
+        //    var output = "OnSwipeLeft";
+        //    debug.text = output;
         }
 
         public virtual void OnSwipeRight()
         {
-            var output = "OnSwipeRight";
-            debug.text = output;
+            //var output = "OnSwipeRight";
+            //debug.text = output;
         }
     }
 }

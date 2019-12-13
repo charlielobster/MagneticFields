@@ -28,8 +28,8 @@ namespace MagneticFields.Scenes
             lineReading = new GameObject().AddComponent<LineReading>();
             heading = new GameObject().AddComponent<Heading>();
 
-            //debug = GameObject.Find("Debug").GetComponent<Text>();
-            //debug.text += "Awaking Idle\n";
+            debug = GameObject.Find("Debug").GetComponent<Text>();
+            debug.text += "\nAwaking Idle Scene...\n";
 
             lastUpdated = DateTime.Now;
         }
@@ -52,7 +52,7 @@ namespace MagneticFields.Scenes
 
                 lineReading.Set(compass, transform, orientation);
                 shapeReading.Set(compass, transform, orientation);
-
+                
                 lastUpdated = DateTime.UtcNow;
             }
 
@@ -62,9 +62,9 @@ namespace MagneticFields.Scenes
             shapeReading.gameObject.transform.position = position;
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
-            //var output = String.Empty;
-            //output += shapeReading.ToString();
-            //debug.text = output;
+            var output = String.Empty;
+            output += shapeReading.ToString();
+            debug.text = output;
         }
     }
 }

@@ -197,7 +197,7 @@ namespace MagneticFields.Scenes
 
         void Awake()
         {
-            debug.text = "Awaking Place";
+            debug.text = "Awaking Place Scene...";
             try
             {
                 planeManager = GetComponent<ARPlaneManager>();

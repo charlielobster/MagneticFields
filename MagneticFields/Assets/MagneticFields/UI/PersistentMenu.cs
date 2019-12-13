@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +7,7 @@ namespace MagneticFields.UI
     public class PersistentMenu : SwipeComponent
     {
         private Dropdown sceneDropdown;
-        private Text debug;
+        //private Text debug;
 
         public enum Scene
         {
@@ -34,8 +32,8 @@ namespace MagneticFields.UI
             Input.location.Start();
             Input.compass.enabled = true;
 
-            debug = GameObject.Find("Debug").GetComponent<Text>();
-            debug.text = "PersistentMenu";
+            //debug = GameObject.Find("Debug").GetComponent<Text>();
+            //debug.text = "PersistentMenu";
 
             sceneDropdown = GameObject.Find("SceneDropdown").GetComponent<Dropdown>(); ;
             sceneDropdown.options.Clear();
@@ -55,14 +53,11 @@ namespace MagneticFields.UI
             base.Update();
         }
 
-
         void OnSceneChanged(Dropdown dropdown)
         {
             var sceneName = string.Format("{0}Scene", ((Scene)dropdown.value).ToString("g"));
             SceneManager.LoadScene(sceneName);
         }
-
-
     }
 }
 
