@@ -13,9 +13,9 @@ namespace MagneticFields.Scenes
     {
         public GameObject gridElement;
 
-        private float unitLength = .5f;//1f / 25f;
+        private float unitLength = .0375f;   //1f / 25f;
 
-        private List<FieldReading> readings;
+        private List<LineReading> readings;
         private KdTree<float, BoundingBox> kdTree;
         private bool reading;
         private bool gridHidden;
@@ -134,26 +134,26 @@ namespace MagneticFields.Scenes
         void Awake()
         {
             reading = false;
-            gridHidden = false;
+            gridHidden = true;
             unitSlider.value = unitLength;
-            debug.text = "Awaking Continuous Scene";
+            debug.text = "Awaking Continuous Scene...";
             unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
             resetButton.onClick.AddListener(OnResetButtonClicked);
             readButton.onClick.AddListener(OnReadButtonClicked);
             hideGridButton.onClick.AddListener(OnHideGridButtonClicked);
             kdTree = new KdTree<float, BoundingBox>(3, new FloatMath());
-            readings = new List<FieldReading>();
+            readings = new List<LineReading>();
         }
 
         void Update()
         {
-            debug.text = "Update\n";
+            //debug.text = "Update\n";
             if (reading)
             {
                 if (Camera.current != null)
                 {
                     var position = Camera.current.transform.position;
-                    debug.text += ("\n" + Utils.DebugVector("position", position) + "\n");
+                    //debug.text += ("\n" + Utils.DebugVector("position", position) + "\n");
 
                     if (kdTree.Count == 0)
                     {
@@ -164,17 +164,17 @@ namespace MagneticFields.Scenes
                     {
                         float[] fPosition = { position.x, position.y, position.z };
                         var nearest = kdTree.GetNearestNeighbours(fPosition, 1)[0].Value;
-                        debug.text += ("\n" + Utils.DebugVector("nearest", nearest.center) + "\n");
+                        //debug.text += ("\n" + Utils.DebugVector("nearest", nearest.center) + "\n");
 
                         if (!nearest.Surrounds(position))
                         {
                             var nextPosition = GetNextBoxPosition(position);
-                            debug.text += ("\nadding BoundingBox\n" + Utils.DebugVector("nextPosition", nextPosition) + "\n");
+                            //debug.text += ("\nadding BoundingBox\n" + Utils.DebugVector("nextPosition", nextPosition) + "\n");
                             AddBoundingBox(nextPosition);
                         }
                         else
                         {
-                            debug.text += ("\nnearest surrounds position\n");
+                           // debug.text += ("\nnearest surrounds position\n");
                         }
                     }
                 }
@@ -184,20 +184,39 @@ namespace MagneticFields.Scenes
         private void AddBoundingBox(Vector3 center)
         {
             float[] point = { center.x, center.y, center.z };
-            var parent = new GameObject();
-            var box = parent.AddComponent<BoundingBox>();
+            var box = new GameObject().AddComponent<BoundingBox>();
             box.center = center;
             box.unitLength = unitLength;
+
+            box.gameObject.SetActive(!gridHidden);
             kdTree.Add(point, box);
 
-            var fo = new GameObject();
-            var fr = fo.AddComponent<FieldReading>();
-            fr.Position = center;
-            fr.Reading = Input.compass.rawVector;
-            fo.transform.localScale *= unitLength;
-            readings.Add(fr);
+            //box.heading = new GameObject().AddComponent<Heading>();
+            //box.heading.widthMultiplier = 0.01f * unitLength;
+            //box.heading.gameObject.transform.rotation = transform.rotation;
+            //box.heading.degrees = Input.compass.magneticHeading;
+            //box.heading.gameObject.transform.position = center;
+            //box.heading.gameObject.transform.localScale *= unitLength;
 
-            box.color = fr.Color;
+            box.lineReading = new GameObject().AddComponent<LineReading>();
+            readings.Add(box.lineReading);
+
+            box.lineReading.ShowFrame = false;
+            box.lineReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+            box.lineReading.widthMultiplier = 0.01f * unitLength;
+            box.lineReading.gameObject.transform.position = center;
+            box.lineReading.gameObject.transform.localScale *= unitLength;
+
+            box.shapeReading = new GameObject().AddComponent<ShapeReading>();
+
+            box.shapeReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+            box.shapeReading.gameObject.transform.position = center;
+            box.shapeReading.gameObject.transform.localScale *= unitLength;
+
+
+         //   debug.text += reading.ToString();
+
+            box.color = box.lineReading.color;
         }
 
         private Vector3 GetNextBoxPosition(Vector3 position)

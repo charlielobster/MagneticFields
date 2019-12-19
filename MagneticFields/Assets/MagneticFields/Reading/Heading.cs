@@ -37,6 +37,20 @@ namespace MagneticFields.Reading
             }
         }
 
+        public float widthMultiplier
+        {
+            set
+            {
+                m_headingRenderer.widthMultiplier = value;
+                m_circle.widthMultiplier = value;
+                m_axis.widthMultiplier = value;
+            }
+            get
+            {
+                return m_headingRenderer.widthMultiplier;
+            }
+        }
+
         public float radians
         {
             set

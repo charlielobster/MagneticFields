@@ -11,8 +11,8 @@ namespace MagneticFields.UI
 
         public enum Scene
         {
-            Idle,
             Continuous,
+            Idle,
             Place
         }
 

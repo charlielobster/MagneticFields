@@ -35,10 +35,8 @@ namespace MagneticFields.Reading
             root.transform.rotation = rotation * q;
         }
         
-        public override void Start()
+        public ShapeReading()
         {
-            base.Start();
-
             m_vectorMaterial = new Material(Shader.Find("Diffuse"));
             m_vectorMaterial.SetColor("_Color", color);
 

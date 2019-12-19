@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using MagneticFields.Reading;
 
 namespace MagneticFields.Geometry
 { 
@@ -10,6 +11,10 @@ namespace MagneticFields.Geometry
         private Color m_color;
         private LineRenderer m_lineRenderer;
         private GameObject rendererObject;
+
+        public LineReading lineReading;
+        public ShapeReading shapeReading;
+        public Heading heading;
 
         public BoundingBox()
         {

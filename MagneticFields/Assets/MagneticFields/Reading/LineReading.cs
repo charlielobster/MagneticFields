@@ -10,10 +10,8 @@ namespace MagneticFields.Reading
         private LineRenderer m_yRenderer;
         private LineRenderer m_xzRenderer;
 
-        public override void Start()
+        public LineReading()
         {
-            base.Start();
-
             m_rawVectorRenderer = Utils.InitializeLineRenderer(root, color);
 
             m_yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
@@ -25,9 +23,23 @@ namespace MagneticFields.Reading
             m_xzRenderer.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
 
+        public bool ShowFrame
+        {
+            set
+            {
+                m_xzRenderer.gameObject.SetActive(value);
+                m_yRenderer.gameObject.SetActive(value);
+            }
+            get
+            {
+                return m_xzRenderer.gameObject.activeInHierarchy;
+            }
+        }
+
         public override void Set(Compass compass, Transform transform, DeviceOrientation orientation)
         {
             base.Set(compass, transform, orientation);
+
             var normalized = rawVector.normalized;
             m_rawVectorRenderer.SetPosition(1, normalized);
             m_rawVectorRenderer.material.SetColor("_Color", color);
@@ -38,7 +50,22 @@ namespace MagneticFields.Reading
 
             m_yRenderer.SetPosition(1, new Vector3(0, normalized.y, 0));
         }
-                
+
+        public float widthMultiplier
+        {
+            set
+            {
+                m_rawVectorRenderer.widthMultiplier = 10.0f * value;
+                m_yRenderer.widthMultiplier = value;
+                m_xzRenderer.widthMultiplier = value;
+                m_rawVectorRenderer.widthMultiplier = value;
+            }
+            get
+            {
+                return m_rawVectorRenderer.widthMultiplier;
+            }
+        }
+
         public override void OnDestroy()
         {
             Destroy(m_rawVectorRenderer.gameObject);

@@ -34,6 +34,19 @@ namespace MagneticFields.Geometry
             }
         }
 
+        public float widthMultiplier
+        {
+            set
+            {
+                foreach (var a in m_axes)
+                    a.widthMultiplier = value;
+            }
+            get
+            {
+                return m_axes[0].widthMultiplier;
+            }
+        }
+
         public void OnDestroy()
         {
             foreach (var a in m_axes)
