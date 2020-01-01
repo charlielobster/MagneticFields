@@ -656,6 +656,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7509745952621134889, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
+        type: 3}
+      propertyPath: m_Name
+      value: PlaceButtonPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 5959021263102367645, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
         type: 3}
       propertyPath: m_Text
@@ -795,6 +800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509745952621134889, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
+        type: 3}
+      propertyPath: m_Name
+      value: IdleButtonPanel
       objectReference: {fileID: 0}
     - target: {fileID: 7617188796635648778, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
         type: 3}
@@ -1088,6 +1098,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7509745952621134889, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
+        type: 3}
+      propertyPath: m_Name
+      value: ContinuousButtonPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 5959021263102367645, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
         type: 3}
       propertyPath: m_Text
@@ -1227,6 +1242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509745952621134889, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
+        type: 3}
+      propertyPath: m_Name
+      value: OptionsButtonPanel
       objectReference: {fileID: 0}
     - target: {fileID: 5959021263102367645, guid: 02dd71a7043dffa4686eac3ae9fac9bb,
         type: 3}

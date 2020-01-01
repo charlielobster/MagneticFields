@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MagneticFields.UI
+namespace MagneticFields.UI.Swipe
 {
     public class SwipePanel : SwipeBehavior
     {

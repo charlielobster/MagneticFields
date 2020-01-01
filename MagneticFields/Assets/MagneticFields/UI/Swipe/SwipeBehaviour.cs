@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Linq;
 
-namespace MagneticFields.UI
+namespace MagneticFields.UI.Swipe
 {
     public enum SwipeState
     {

@@ -76,10 +76,9 @@
     <Compile Include="Assets\MagneticFields\Scenes\IdleScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\PlaceScene.cs" />
     <Compile Include="Assets\MagneticFields\UI\DebugBehaviour.cs" />
-    <Compile Include="Assets\MagneticFields\UI\PersistentMenu.cs" />
-    <Compile Include="Assets\MagneticFields\UI\SwipeBehaviour.cs" />
-    <Compile Include="Assets\MagneticFields\UI\SwipeContainerScript.cs" />
-    <Compile Include="Assets\MagneticFields\UI\SwipePanel.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeBehaviour.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeContainer.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipePanel.cs" />
     <Compile Include="Assets\MagneticFields\UI\WorldCanvas.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

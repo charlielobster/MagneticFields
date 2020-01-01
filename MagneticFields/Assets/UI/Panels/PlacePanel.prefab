@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 8737851099838519764}
   - component: {fileID: 1682687108471914935}
   - component: {fileID: 6597950151972803835}
+  - component: {fileID: 5264777309887066687}
   m_Layer: 5
   m_Name: PlacePanel
   m_TagString: Untagged
@@ -468,6 +469,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5264777309887066687
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902258162959629675}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2945136939394464150
 GameObject:
   m_ObjectHideFlags: 0
