@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Threading;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using MagneticFields.Geometry;
 using MagneticFields.Reading;
+using MagneticFields.UI;
 
 namespace MagneticFields.Scenes
 {
-    public class PlaceScene : MonoBehaviour
+    public class PlaceScene : DebugBehaviour
     {
         public GameObject gridElement;
         
@@ -39,13 +37,13 @@ namespace MagneticFields.Scenes
         private Vector3 center;
         private bool stopUpdate = false;
 
-        private Text debug
-        {
-            get
-            {
-                return GameObject.Find("Debug").GetComponent<Text>();
-            }
-        }
+        //private Text debug
+        //{
+        //    get
+        //    {
+        //        return GameObject.Find("Debug").GetComponent<Text>();
+        //    }
+        //}
 
         private Slider xSlider
         {
@@ -122,7 +120,7 @@ namespace MagneticFields.Scenes
 
         void OnCalibrationToggleChanged(Toggle toggle)
         {
-            debug.text += ("\ntoggle.value: " + toggle.isOn + "\n");
+     //       debug.text += ("\ntoggle.value: " + toggle.isOn + "\n");
             calibrate = toggle.isOn;
         }
 
@@ -144,9 +142,9 @@ namespace MagneticFields.Scenes
 
         void OnResetButtonClicked()
         {
-            debug.text += ("Resetting with values\nxDimension: " + 
-                xDimension + "\nyDimension: " + yDimension + "\nzDimension: " + 
-                zDimension + "\nunitLength: " + unitLength + "\nsamples: " + samples + "\n");
+            //debug.text += ("Resetting with values\nxDimension: " + 
+            //    xDimension + "\nyDimension: " + yDimension + "\nzDimension: " + 
+            //    zDimension + "\nunitLength: " + unitLength + "\nsamples: " + samples + "\n");
             Reset();
         }
 
@@ -197,7 +195,7 @@ namespace MagneticFields.Scenes
 
         void Awake()
         {
-            debug.text = "Awaking Place Scene...";
+     //       debug.text = "Awaking Place Scene...";
             try
             {
                 planeManager = GetComponent<ARPlaneManager>();
@@ -215,7 +213,7 @@ namespace MagneticFields.Scenes
             }
             catch (Exception e)
             {
-                debug.text += ("\n" + e.ToString() + "\n");
+      //          debug.text += ("\n" + e.ToString() + "\n");
             }
         }
 
@@ -227,7 +225,7 @@ namespace MagneticFields.Scenes
                 {
                     if (Camera.current != null)
                     {
-                        debug.text = Utils.DebugVector("camera.position", Camera.current.transform.position);
+        //                debug.text = Utils.DebugVector("camera.position", Camera.current.transform.position);
                     }
 
                     if (referencePoint == null)
@@ -270,7 +268,7 @@ namespace MagneticFields.Scenes
                             ((center.z - zd) <= currentPosition.z) &&
                             (currentPosition.z <= (center.z + zd)))
                         {
-                            debug.text += "\nInside reading space...\n";
+                //            debug.text += "\nInside reading space...\n";
                             var dc = currentPosition - center;
                             var indices = dc / unitLength;
                             indices = new Vector3(
@@ -337,7 +335,7 @@ namespace MagneticFields.Scenes
                                     {
                                         if (calibrate && !calibrationComplete)
                                         {
-                                            debug.text += "\ncalibration complete, taking readings...\n";
+                              //              debug.text += "\ncalibration complete, taking readings...\n";
                                             calibrationComplete = true;
                                             for (var i = 0; i < counts.Length; i++)
                                             {
@@ -347,7 +345,7 @@ namespace MagneticFields.Scenes
                                         } else
                                         {
                                             stopUpdate = true;
-                                            debug.text += "\nComplete\n";
+                      //                      debug.text += "\nComplete\n";
                                         }
                                     }
                                 }
@@ -358,7 +356,7 @@ namespace MagneticFields.Scenes
                 }
                 catch (Exception e)
                 {
-                    debug.text += e.ToString();
+               //     debug.text += e.ToString();
                     stopUpdate = true;
                 }
             }

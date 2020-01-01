@@ -5,6 +5,11 @@ namespace MagneticFields.Geometry
 {
     public static class Utils
     {
+        public static String Debug(this Touch touch)
+        {
+            return "";
+        }
+
         public static String DebugFloat(string name, float f)
         {
             return String.Format("{0}: {1,10:00.00}", name, f);

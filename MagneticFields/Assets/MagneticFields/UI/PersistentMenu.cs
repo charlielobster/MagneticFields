@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
 
 namespace MagneticFields.UI
 {
-    public class PersistentMenu : SwipeComponent
+    public class PersistentMenu : SwipePanel
     {
-        private Dropdown sceneDropdown;
-        //private Text debug;
+        //private Dropdown sceneDropdown;
 
-        public enum Scene
-        {
-            Continuous,
-            Idle,
-            Place
-        }
+        protected int swipeOffset = 0;
+ 
+        //public enum Scene
+        //{
+        //    Idle,
+        //    Continuous,
+        //    Place
+        //}
 
         public override void Awake()
         {
@@ -32,32 +35,39 @@ namespace MagneticFields.UI
             Input.location.Start();
             Input.compass.enabled = true;
 
-            //debug = GameObject.Find("Debug").GetComponent<Text>();
-            //debug.text = "PersistentMenu";
 
-            sceneDropdown = GameObject.Find("SceneDropdown").GetComponent<Dropdown>(); ;
-            sceneDropdown.options.Clear();
-            for (int i = 0; i < 3; i++)
+            try
             {
-                sceneDropdown.options.Insert(i,
-                    new Dropdown.OptionData(((Scene)i).ToString("g")));
+                SceneManager.LoadScene("IdleScene");
             }
-            sceneDropdown.onValueChanged.AddListener(
-                delegate { OnSceneChanged(sceneDropdown); });
-            sceneDropdown.value = 0;
-            OnSceneChanged(sceneDropdown);
+            catch (Exception e)
+            {
+                debug.text = e.ToString();
+            }
+            //foreach (var t in tabs)
+            //{
+            //    var btn = this.gameObject.AddComponent<Button>();
+            //}
+
+            //sceneDropdown = GameObject.Find("SceneDropdown").GetComponent<Dropdown>(); ;
+            //sceneDropdown.options.Clear();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    sceneDropdown.options.Insert(i,
+            //        new Dropdown.OptionData(((Scene)i).ToString("g")));
+            //}
+            //sceneDropdown.onValueChanged.AddListener(
+            //    delegate { OnSceneChanged(sceneDropdown); });
+            //sceneDropdown.value = 0;
+            //OnSceneChanged(sceneDropdown);
+
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
-
-        void OnSceneChanged(Dropdown dropdown)
-        {
-            var sceneName = string.Format("{0}Scene", ((Scene)dropdown.value).ToString("g"));
-            SceneManager.LoadScene(sceneName);
-        }
+        //void OnSceneChanged(Dropdown dropdown)
+        //{
+        //    var sceneName = string.Format("{0}Scene", ((Scene)dropdown.value).ToString("g"));
+        //    SceneManager.LoadScene(sceneName);
+        //}
     }
 }
 

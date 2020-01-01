@@ -6,10 +6,11 @@ using MagneticFields.Geometry;
 using MagneticFields.Reading;
 using KdTree;
 using KdTree.Math;
+using MagneticFields.UI;
 
 namespace MagneticFields.Scenes
 {
-    public class ContinuousScene : MonoBehaviour
+    public class ContinuousScene : DebugBehaviour
     {
         public GameObject gridElement;
 
@@ -20,14 +21,6 @@ namespace MagneticFields.Scenes
         private bool reading;
         private bool gridHidden;
 
-        private Text debug
-        {
-            get
-            {
-                return GameObject.Find("Debug").GetComponent<Text>();
-            }
-        }
-       
         private Slider unitSlider
         {
             get
@@ -136,7 +129,7 @@ namespace MagneticFields.Scenes
             reading = false;
             gridHidden = true;
             unitSlider.value = unitLength;
-            debug.text = "Awaking Continuous Scene...";
+           // debug.text = "Awaking Continuous Scene...";
             unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
             resetButton.onClick.AddListener(OnResetButtonClicked);
             readButton.onClick.AddListener(OnReadButtonClicked);
