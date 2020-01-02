@@ -36,15 +36,7 @@ namespace MagneticFields.Scenes
         private Pose pose;
         private Vector3 center;
         private bool stopUpdate = false;
-
-        //private Text debug
-        //{
-        //    get
-        //    {
-        //        return GameObject.Find("Debug").GetComponent<Text>();
-        //    }
-        //}
-
+        
         private Slider xSlider
         {
             get

@@ -75,7 +75,9 @@
     <Compile Include="Assets\MagneticFields\Scenes\ContinuousScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\IdleScene.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\PlaceScene.cs" />
+    <Compile Include="Assets\MagneticFields\UI\ComboSlider.cs" />
     <Compile Include="Assets\MagneticFields\UI\DebugBehaviour.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Palette.cs" />
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeBehaviour.cs" />
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeContainer.cs" />
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipePanel.cs" />

@@ -11,7 +11,7 @@ namespace MagneticFields.UI.Swipe
 
         public virtual void Awake()
         {
-            debug.text = "SwipeBehavior";
+            //debug.text = "SwipePanel";
             SetDimension();
         }
 

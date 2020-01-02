@@ -8,7 +8,7 @@ namespace MagneticFields.UI.Swipe
     public class SwipeContainer : SwipePanel
     {
         private CanvasGroup currentCanvas;
-        private Image currentButtonPanel;
+        private Image currentButton;
 
         private Button optionsButton
         {
@@ -70,126 +70,82 @@ namespace MagneticFields.UI.Swipe
             get => GameObject.Find("PlacePanel").GetComponent<CanvasGroup>();
         }
 
-        void HideTab(Image buttonPanel, CanvasGroup canvasGroup)
+        void HideTab(Image button, CanvasGroup canvas)
         {
-            buttonPanel.color = new Color32(120, 49, 152, 255);
-            canvasGroup.alpha = 0f; 
-            canvasGroup.blocksRaycasts = false;
+            button.color = Palette.Purple;
+            canvas.alpha = 0f; 
+            canvas.blocksRaycasts = false;
         }
 
-        void ShowTab(Image buttonPanel, CanvasGroup canvasGroup)
+        void ShowTab(Image button, CanvasGroup canvas)
         {
-            buttonPanel.color = new Color32(94, 94, 94, 255);
-            canvasGroup.alpha = 1f; 
-            canvasGroup.blocksRaycasts = true; 
+            button.color = Palette.LightGray;
+            canvas.alpha = 1f; 
+            canvas.blocksRaycasts = true;
+            currentButton = button;
+            currentCanvas = canvas;
         }
 
         void OnIdleButtonClicked()
         {
-
-
-            //canvasGroup.alpha = 0f; //this makes everything transparent
-            //canvasGroup.blocksRaycasts = false;
-
-
-
-            debug.text = "OnIdleButtonClicked";
             OnButtonClicked(idleButtonPanel, idleCanvas);
             SceneManager.LoadScene("IdleScene");
         }
 
         void OnContinuousButtonClicked()
         {
-            debug.text = "OnContinuousButtonClicked";
-
             OnButtonClicked(continuousButtonPanel, continuousCanvas);
             SceneManager.LoadScene("ContinuousScene");
         }
 
         void OnPlaceButtonClicked()
         {
-            debug.text = "OnPlaceButtonClicked";
             OnButtonClicked(placeButtonPanel, placeCanvas);
             SceneManager.LoadScene("PlaceScene");
         }
 
         void OnOptionsButtonClicked()
         {
-            debug.text = "OnOptionsButtonClicked";
             OnButtonClicked(optionsButtonPanel, optionsCanvas);
         }
 
-        private void OnButtonClicked(Image nextButtonPanel, CanvasGroup nextCanvas)
+        private void OnButtonClicked(Image nextButton, CanvasGroup nextCanvas)
         {
-            try
-            {
-                debug.text += "\nsetting: " + nextCanvas + "\n";
-                HideTab(currentButtonPanel, currentCanvas);
-                currentButtonPanel = nextButtonPanel;
-                currentCanvas = nextCanvas;
-                ShowTab(currentButtonPanel, currentCanvas);
-                debug.text += "\nOnButtonClicked";
-            }
-            catch (Exception e)
-            {
-                debug.text = e.ToString();
-            }
+            HideTab(currentButton, currentCanvas);
+            ShowTab(nextButton, nextCanvas);
         }
 
         public override void Awake()
         {
-
             base.Awake();
-
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("SwipeContainerObject");
-
-            if (objs.Length > 1)
-            {
-                Destroy(this.gameObject);
-            }
-
-            DontDestroyOnLoad(this.gameObject);
 
             Input.location.Start();
             Input.compass.enabled = true;
 
+            PersistSingletonContainer();
 
-            try
+            HideTab(continuousButtonPanel, continuousCanvas);
+            HideTab(placeButtonPanel, placeCanvas);
+            HideTab(optionsButtonPanel, optionsCanvas);
+            ShowTab(idleButtonPanel, idleCanvas);
+
+            SceneManager.LoadScene("IdleScene");
+
+            idleButton.onClick.AddListener(OnIdleButtonClicked);
+            continuousButton.onClick.AddListener(OnContinuousButtonClicked);
+            placeButton.onClick.AddListener(OnPlaceButtonClicked);
+            optionsButton.onClick.AddListener(OnOptionsButtonClicked);
+        }
+
+        private void PersistSingletonContainer()
+        {
+            // ensure only one persistent instance of SwipeContainerObject 
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("SwipeContainerObject");
+            if (objs.Length > 1)
             {
-                SceneManager.LoadScene("IdleScene");
+                Destroy(gameObject);
             }
-            catch (Exception e)
-            {
-                debug.text = e.ToString();
-            }
-
-
-
-
-
-
-            try
-            {
-                HideTab(continuousButtonPanel, continuousCanvas);
-                HideTab(placeButtonPanel, placeCanvas);
-                HideTab(optionsButtonPanel, optionsCanvas);
-                ShowTab(idleButtonPanel, idleCanvas);
-
-                currentButtonPanel = idleButtonPanel;
-                currentCanvas = idleCanvas;
-
-                idleButton.onClick.AddListener(OnIdleButtonClicked);
-                continuousButton.onClick.AddListener(OnContinuousButtonClicked);
-                placeButton.onClick.AddListener(OnPlaceButtonClicked);
-                optionsButton.onClick.AddListener(OnOptionsButtonClicked);
-                // debug.text = "SwipeContainerScript.Awake";
-            }
-            catch (Exception e)
-            {
-                debug.text = e.ToString();
-            }
-
-
+            DontDestroyOnLoad(gameObject);
         }
     }
 }
