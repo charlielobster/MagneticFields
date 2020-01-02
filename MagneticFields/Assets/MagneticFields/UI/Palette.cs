@@ -2,6 +2,7 @@
 
 namespace MagneticFields.UI
 {
+    //
     public static class Palette
     {
         public static Color32 Purple = new Color32(120, 49, 152, 255);
