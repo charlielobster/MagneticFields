@@ -2,6 +2,7 @@
 using UnityEngine;
 using MagneticFields.Reading;
 using MagneticFields.UI;
+using UnityEngine.UI;
 
 namespace MagneticFields.Scenes
 {
@@ -16,6 +17,11 @@ namespace MagneticFields.Scenes
         
         private Vector3 rawVector;
         private DateTime lastUpdated;
+
+        private Slider sampleSlider
+        {
+            get => gameObject.transform.Find("SampleSlider").GetComponent<Slider>();
+        }
 
         void Awake()
         {
