@@ -261,8 +261,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1231778376}
   - {fileID: 728202783}
+  - {fileID: 1231778376}
   m_Father: {fileID: 155366114}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 8323765874808946330, guid: 4375768e357a4294790a1ff9679aa387,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8323765874808946330, guid: 4375768e357a4294790a1ff9679aa387,
         type: 3}
@@ -600,9 +600,24 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8875262367480294514, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5206985995276251382, guid: 4375768e357a4294790a1ff9679aa387,
         type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206985995276251382, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5206985995276251382, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2383924979559080219, guid: 4375768e357a4294790a1ff9679aa387,
@@ -719,18 +734,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231778375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458418815}
   m_Father: {fileID: 349409874}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180, y: -77}
-  m_SizeDelta: {x: 600, y: 900}
+  m_AnchoredPosition: {x: -235, y: -515}
+  m_SizeDelta: {x: 540, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231778377
 MonoBehaviour:

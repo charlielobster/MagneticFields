@@ -10,11 +10,6 @@ namespace MagneticFields.UI.Swipe
         private CanvasGroup currentCanvas;
         private Image currentButton;
 
-        private Button optionsButton
-        {
-            get => GameObject.Find("OptionsButton").GetComponent<Button>();
-        }
-
         private Button idleButton
         {
             get => GameObject.Find("IdleButton").GetComponent<Button>();
@@ -29,12 +24,7 @@ namespace MagneticFields.UI.Swipe
         {
             get => GameObject.Find("ContinuousButton").GetComponent<Button>();
         }
-
-        private Image optionsButtonPanel
-        {
-            get => GameObject.Find("OptionsButtonPanel").GetComponent<Image>();
-        }
-
+        
         private Image idleButtonPanel
         {
             get => GameObject.Find("IdleButtonPanel").GetComponent<Image>();
@@ -48,11 +38,6 @@ namespace MagneticFields.UI.Swipe
         private Image continuousButtonPanel
         {
             get => GameObject.Find("ContinuousButtonPanel").GetComponent<Image>();
-        }
-
-        private CanvasGroup optionsCanvas
-        {
-            get => GameObject.Find("OptionsPanel").GetComponent<CanvasGroup>();
         }
 
         private CanvasGroup idleCanvas
@@ -103,12 +88,7 @@ namespace MagneticFields.UI.Swipe
             OnButtonClicked(placeButtonPanel, placeCanvas);
             SceneManager.LoadScene("PlaceScene");
         }
-
-        void OnOptionsButtonClicked()
-        {
-            OnButtonClicked(optionsButtonPanel, optionsCanvas);
-        }
-
+        
         private void OnButtonClicked(Image nextButton, CanvasGroup nextCanvas)
         {
             HideTab(currentButton, currentCanvas);
@@ -120,13 +100,13 @@ namespace MagneticFields.UI.Swipe
             base.Awake();
 
             Input.location.Start();
+            Input.gyro.enabled = true;
             Input.compass.enabled = true;
 
             PersistSingletonContainer();
 
             HideTab(continuousButtonPanel, continuousCanvas);
             HideTab(placeButtonPanel, placeCanvas);
-            HideTab(optionsButtonPanel, optionsCanvas);
             ShowTab(idleButtonPanel, idleCanvas);
 
             SceneManager.LoadScene("IdleScene");
@@ -134,7 +114,6 @@ namespace MagneticFields.UI.Swipe
             idleButton.onClick.AddListener(OnIdleButtonClicked);
             continuousButton.onClick.AddListener(OnContinuousButtonClicked);
             placeButton.onClick.AddListener(OnPlaceButtonClicked);
-            optionsButton.onClick.AddListener(OnOptionsButtonClicked);
         }
 
         private void PersistSingletonContainer()

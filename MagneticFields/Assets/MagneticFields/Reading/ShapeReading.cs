@@ -60,7 +60,7 @@ namespace MagneticFields.Reading
 
             gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
-
+      
         public override void OnDestroy()
         {
             Destroy(m_cone);

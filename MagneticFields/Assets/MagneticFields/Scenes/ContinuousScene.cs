@@ -128,12 +128,12 @@ namespace MagneticFields.Scenes
         {
             reading = false;
             gridHidden = true;
-            unitSlider.value = unitLength;
-           // debug.text = "Awaking Continuous Scene...";
-            unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
-            resetButton.onClick.AddListener(OnResetButtonClicked);
-            readButton.onClick.AddListener(OnReadButtonClicked);
-            hideGridButton.onClick.AddListener(OnHideGridButtonClicked);
+            //unitSlider.value = unitLength;
+            debug.text = "Awaking Continuous Scene...";
+            //unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
+            //resetButton.onClick.AddListener(OnResetButtonClicked);
+            //readButton.onClick.AddListener(OnReadButtonClicked);
+            //hideGridButton.onClick.AddListener(OnHideGridButtonClicked);
             kdTree = new KdTree<float, BoundingBox>(3, new FloatMath());
             readings = new List<LineReading>();
         }
@@ -141,6 +141,23 @@ namespace MagneticFields.Scenes
         void Update()
         {
             //debug.text = "Update\n";
+            if (Input.touchCount > 0)
+            {
+                debug.text = string.Format("{0}", Input.touchCount);
+                var touch = Input.GetTouch(0);
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        break;
+                    case TouchPhase.Ended:
+                        reading = !reading;
+                        debug.text = "Reading";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             if (reading)
             {
                 if (Camera.current != null)

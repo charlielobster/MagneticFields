@@ -81,6 +81,7 @@
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeBehaviour.cs" />
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeContainer.cs" />
     <Compile Include="Assets\MagneticFields\UI\Swipe\SwipePanel.cs" />
+    <Compile Include="Assets\MagneticFields\UI\TapBehavior.cs" />
     <Compile Include="Assets\MagneticFields\UI\WorldCanvas.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Users/skoob/Source/Repos/MagneticFields/MagneticFields/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

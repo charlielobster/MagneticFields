@@ -144,6 +144,11 @@ namespace MagneticFields.Reading
             */
         }
 
+        public virtual void SetActive(bool active)
+        {
+            gameObject.SetActive(active);
+        }
+
         public virtual void Set(Compass compass, Transform transform, DeviceOrientation orientation)
         {
             Set(compass.magneticHeading, compass.rawVector, transform.rotation, 
@@ -177,8 +182,12 @@ namespace MagneticFields.Reading
                     m_isValid = true;
                     break;
                 case DeviceOrientation.FaceUp:
-                    // FaceUp appears to be off by a PI rotation about some axis
                 case DeviceOrientation.FaceDown:
+                    // FaceUp appears to be off by a PI rotation about some axis
+                    m_rawVector = new Vector3(rawVector.x, rawVector.y, -rawVector.z);
+                    m_isValid = true;
+                    break;
+
                 case DeviceOrientation.Unknown:
                 default:
                     // these have issues
@@ -195,7 +204,7 @@ namespace MagneticFields.Reading
             m_dateTime = dateTime;
 
             //Activate only if valid
-            gameObject.SetActive(m_isValid);
+            SetActive(m_isValid);
         }
 
         public Reading()
@@ -206,6 +215,7 @@ namespace MagneticFields.Reading
 
         public virtual void OnDestroy()
         {
+            Destroy(m_root.gameObject);
             Destroy(m_root);
         }
 

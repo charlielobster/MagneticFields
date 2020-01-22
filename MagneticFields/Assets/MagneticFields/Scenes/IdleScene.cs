@@ -2,13 +2,14 @@
 using UnityEngine;
 using MagneticFields.Reading;
 using MagneticFields.UI;
+using MagneticFields.Geometry;
 using UnityEngine.UI;
 
 namespace MagneticFields.Scenes
 {
     public class IdleScene : DebugBehaviour
     {
-        public const double IDLE_TIME = 1e5; // 1e7 Ticks a second
+        public const double TICKS_PER_SECOND = 1e7; // 1e7 Ticks a second
 
         private Heading heading;
         private ShapeReading shapeReading;
@@ -18,9 +19,35 @@ namespace MagneticFields.Scenes
         private Vector3 rawVector;
         private DateTime lastUpdated;
 
+        private GameObject idleMenu
+        {
+            get => GameObject.Find("IdlePanel");
+        }
+
         private Slider sampleSlider
         {
-            get => gameObject.transform.Find("SampleSlider").GetComponent<Slider>();
+            get => idleMenu.transform.Find("FillPanel/SampleSlider")
+                .transform.Find("BorderPanel/FillPanel/Slider").GetComponent<Slider>();
+        }
+
+        private Toggle headingToggle
+        {
+            get => idleMenu.transform.Find("FillPanel/HeadingToggle").GetComponent<Toggle>();
+        }
+
+        private Toggle shapeToggle
+        {
+            get => idleMenu.transform.Find("FillPanel/D3VectorToggle").GetComponent<Toggle>();
+        }
+
+        void OnHeadingToggleChanged()
+        {
+            heading.gameObject.SetActive(headingToggle.isOn);
+        }
+
+        void OnShapeToggleChanged()
+        {
+            shapeReading.SetActive(shapeToggle.isOn);
         }
 
         void Awake()
@@ -31,6 +58,9 @@ namespace MagneticFields.Scenes
             shapeReading = new GameObject().AddComponent<ShapeReading>();
             lineReading = new GameObject().AddComponent<LineReading>();
             heading = new GameObject().AddComponent<Heading>();
+
+            headingToggle.onValueChanged.AddListener(delegate { OnHeadingToggleChanged(); });
+            shapeToggle.onValueChanged.AddListener(delegate { OnShapeToggleChanged(); });
 
           //  debug.text += "\nAwaking Idle Scene...\n";
 
@@ -45,24 +75,41 @@ namespace MagneticFields.Scenes
 
             // only change things if time has elapsed
             var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
-            if (elapsedTicks > IDLE_TIME)
+            if (elapsedTicks > (sampleSlider.value * TICKS_PER_SECOND))
             {
                 var compass = Input.compass;
                 var orientation = Input.deviceOrientation;
 
-                heading.gameObject.transform.rotation = transform.rotation;
                 heading.degrees = compass.magneticHeading;
+                heading.orientation = orientation;
+
+                var q = transform.rotation;
+                //heading.transform.Rotate(-90, 0, 0);
+                q = new Quaternion(q.x, q.y, q.z, -q.w);
+               heading.transform.rotation = q;
+//                heading.transform.Rotate(0, 90, 0);
+
+                debug.text = string.Format("{0} - {1}", orientation, heading.degrees);
 
                 lineReading.Set(compass, transform, orientation);
-                shapeReading.Set(compass, transform, orientation);
-                
+                if (shapeToggle.isOn)
+                {
+                    shapeReading.Set(compass, transform, orientation);
+                }
+
                 lastUpdated = DateTime.UtcNow;
             }
 
-            // always place virtual objects directly in front of the camera
+            // place virtual objects directly in front of the camera
             lineReading.gameObject.transform.position = position;
             heading.gameObject.transform.position = position;
-            shapeReading.gameObject.transform.position = position;
+            //heading.gameObject.transform.rotation = Input.gyro.attitude;
+
+            if (shapeToggle.isOn)
+            {
+                shapeReading.gameObject.transform.position = position;
+            }
+
             directionalLight.gameObject.transform.rotation = transform.rotation;
 
             //var output = String.Empty;

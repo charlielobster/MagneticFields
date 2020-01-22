@@ -10,6 +10,7 @@ namespace MagneticFields.Reading
         private LineRenderer m_headingRenderer;
         private Circle m_circle;
         private Axis m_axis;
+        private DeviceOrientation m_orientation;
 
         public Heading()
         {
@@ -23,6 +24,18 @@ namespace MagneticFields.Reading
             m_axis.gameObject.transform.parent = gameObject.transform;
 
             gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
+        }
+
+        public DeviceOrientation orientation
+        {
+            set
+            {
+                m_orientation = value;
+            }
+            get
+            {
+                return m_orientation;
+            }
         }
       
         public float degrees

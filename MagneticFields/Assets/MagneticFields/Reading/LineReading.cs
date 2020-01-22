@@ -51,6 +51,14 @@ namespace MagneticFields.Reading
             m_yRenderer.SetPosition(1, new Vector3(0, normalized.y, 0));
         }
 
+        public override void SetActive(bool active)
+        {
+            base.SetActive(active);
+            m_rawVectorRenderer.gameObject.SetActive(active);
+            m_xzRenderer.gameObject.SetActive(active);
+            m_yRenderer.gameObject.SetActive(active);
+        }
+
         public float widthMultiplier
         {
             set
