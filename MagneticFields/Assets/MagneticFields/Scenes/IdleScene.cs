@@ -62,8 +62,6 @@ namespace MagneticFields.Scenes
             headingToggle.onValueChanged.AddListener(delegate { OnHeadingToggleChanged(); });
             shapeToggle.onValueChanged.AddListener(delegate { OnShapeToggleChanged(); });
 
-          //  debug.text += "\nAwaking Idle Scene...\n";
-
             lastUpdated = DateTime.Now;
         }
 
@@ -81,20 +79,12 @@ namespace MagneticFields.Scenes
                 var orientation = Input.deviceOrientation;
 
                 heading.degrees = compass.magneticHeading;
-                heading.orientation = orientation;
 
-                var q = transform.rotation;
-                //heading.transform.Rotate(-90, 0, 0);
-                q = new Quaternion(q.x, q.y, q.z, -q.w);
-               heading.transform.rotation = q;
-//                heading.transform.Rotate(0, 90, 0);
+                lineReading.Set(compass, orientation);
 
-                debug.text = string.Format("{0} - {1}", orientation, heading.degrees);
-
-                lineReading.Set(compass, transform, orientation);
                 if (shapeToggle.isOn)
                 {
-                    shapeReading.Set(compass, transform, orientation);
+                    shapeReading.Set(compass, orientation);
                 }
 
                 lastUpdated = DateTime.UtcNow;
@@ -103,12 +93,7 @@ namespace MagneticFields.Scenes
             // place virtual objects directly in front of the camera
             lineReading.gameObject.transform.position = position;
             heading.gameObject.transform.position = position;
-            //heading.gameObject.transform.rotation = Input.gyro.attitude;
-
-            if (shapeToggle.isOn)
-            {
-                shapeReading.gameObject.transform.position = position;
-            }
+            shapeReading.gameObject.transform.position = position;
 
             directionalLight.gameObject.transform.rotation = transform.rotation;
 

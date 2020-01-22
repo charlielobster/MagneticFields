@@ -100,7 +100,6 @@ namespace MagneticFields.UI.Swipe
             base.Awake();
 
             Input.location.Start();
-            Input.gyro.enabled = true;
             Input.compass.enabled = true;
 
             PersistSingletonContainer();

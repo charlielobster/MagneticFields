@@ -36,9 +36,9 @@ namespace MagneticFields.Reading
             }
         }
 
-        public override void Set(Compass compass, Transform transform, DeviceOrientation orientation)
+        public override void Set(Compass compass, DeviceOrientation orientation)
         {
-            base.Set(compass, transform, orientation);
+            base.Set(compass, orientation);
 
             var normalized = rawVector.normalized;
             m_rawVectorRenderer.SetPosition(1, normalized);

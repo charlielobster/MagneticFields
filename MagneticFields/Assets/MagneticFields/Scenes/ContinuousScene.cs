@@ -212,14 +212,14 @@ namespace MagneticFields.Scenes
             readings.Add(box.lineReading);
 
             box.lineReading.ShowFrame = false;
-            box.lineReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+        //   box.lineReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
             box.lineReading.widthMultiplier = 0.01f * unitLength;
             box.lineReading.gameObject.transform.position = center;
             box.lineReading.gameObject.transform.localScale *= unitLength;
 
             box.shapeReading = new GameObject().AddComponent<ShapeReading>();
 
-            box.shapeReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+        //    box.shapeReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
             box.shapeReading.gameObject.transform.position = center;
             box.shapeReading.gameObject.transform.localScale *= unitLength;
 

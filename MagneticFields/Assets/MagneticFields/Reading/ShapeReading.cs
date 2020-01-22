@@ -13,9 +13,9 @@ namespace MagneticFields.Reading
         private GameObject m_stem;
         private GameObject m_arrowHeadBase;
 
-        public override void Set(Compass compass, Transform transform, DeviceOrientation orientation)
+        public override void Set(Compass compass,  DeviceOrientation orientation)
         {
-            base.Set(compass, transform, orientation);
+            base.Set(compass, orientation);
 
             m_vectorMaterial.SetColor("_Color", color);
 
@@ -32,7 +32,7 @@ namespace MagneticFields.Reading
 
             var q = Quaternion.Euler(90f + phi, 0, 0);
             q = Quaternion.Euler(0, -theta, 0) * q;
-            root.transform.rotation = rotation * q;
+            root.transform.rotation = q;
         }
         
         public ShapeReading()
