@@ -23,17 +23,14 @@ namespace MagneticFields.Reading
             m_xzRenderer.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
         }
 
-        public bool ShowFrame
+        public bool showFrame
         {
             set
             {
                 m_xzRenderer.gameObject.SetActive(value);
                 m_yRenderer.gameObject.SetActive(value);
             }
-            get
-            {
-                return m_xzRenderer.gameObject.activeInHierarchy;
-            }
+            get => m_xzRenderer.gameObject.activeInHierarchy;
         }
 
         public override void Set(Compass compass, DeviceOrientation orientation)

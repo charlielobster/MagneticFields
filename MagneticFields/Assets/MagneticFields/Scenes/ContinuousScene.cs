@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MagneticFields.Geometry;
 using MagneticFields.Reading;
 using KdTree;
 using KdTree.Math;
@@ -14,32 +12,86 @@ namespace MagneticFields.Scenes
     {
         public GameObject gridElement;
 
-        private float unitLength = .0375f;   //1f / 25f;
-
-        private List<LineReading> readings;
+        private float unitLength = 30f; 
+        
         private KdTree<float, BoundingBox> kdTree;
         private bool reading;
-        private bool gridHidden;
+
+        private GameObject continuousMenu
+        {
+            get => GameObject.Find("ContinuousPanel");
+        }
 
         private Slider unitSlider
         {
-            get
-            {
-                return GameObject.Find("UnitSlider").GetComponent<Slider>();
-            }
+            get => continuousMenu.transform.Find("FillPanel/UnitSlider")
+                .transform.Find("BorderPanel/FillPanel/Slider").GetComponent<Slider>();
         }
 
-        void OnUnitSliderChanged(Slider slider)
+        private Toggle headingsToggle
         {
-            unitLength = (float)slider.value;
-            Reset();
-        }        
+            get => continuousMenu.transform.Find("FillPanel/HeadingsToggle").GetComponent<Toggle>();
+        }
+
+        private Toggle shapesToggle
+        {
+            get => continuousMenu.transform.Find("FillPanel/D3VectorsToggle").GetComponent<Toggle>();
+        }
+
+        private Toggle framesToggle
+        {
+            get => continuousMenu.transform.Find("FillPanel/FramesToggle").GetComponent<Toggle>();
+        }
+
+        private Toggle boundingBoxesToggle
+        {
+            get => continuousMenu.transform.Find("FillPanel/BoundingBoxesToggle").GetComponent<Toggle>();
+        }
 
         private Button resetButton
         {
-            get
+            get => continuousMenu.transform.Find("FillPanel/ResetButton").GetComponent<Button>();
+        }
+
+        void OnUnitSliderChanged()
+        {
+            unitLength = unitSlider.value * .001f;
+            Reset();
+        }
+
+        void OnHeadingsToggleChanged()
+        {
+            foreach (var node in kdTree)
             {
-                return GameObject.Find("ResetButton").GetComponent<Button>();
+                var b = node.Value;
+                b.heading.gameObject.SetActive(headingsToggle.isOn);
+            }
+        }
+
+        void OnShapesToggleChanged()
+        {
+            foreach (var node in kdTree)
+            {
+                var b = node.Value;
+                b.shapeReading.SetActive(shapesToggle.isOn);
+            }
+        }
+
+        void OnFramesToggleChanged()
+        {
+            foreach (var node in kdTree)
+            {
+                var b = node.Value;
+                b.lineReading.showFrame = framesToggle.isOn;
+            }
+        }
+
+        void OnBoundingBoxesChanged()
+        {
+            foreach (var node in kdTree)
+            {
+                var b = node.Value;
+                b.enabled = boundingBoxesToggle.isOn;
             }
         }
 
@@ -47,29 +99,7 @@ namespace MagneticFields.Scenes
         {
             Reset();
         }
-
-        private Button hideGridButton
-        {
-            get
-            {
-                return GameObject.Find("HideGridButton").GetComponent<Button>();
-            }
-        }
-
-        void OnHideGridButtonClicked()
-        {
-            gridHidden = !gridHidden;
-            SetGridActive(!gridHidden);
-            if (gridHidden)
-            {
-                hideGridButton.GetComponentInChildren<Text>().text = "Show Grid";
-            }
-            else
-            {
-                hideGridButton.GetComponentInChildren<Text>().text = "Hide Grid";
-            }
-        }
-
+     
         private void SetGridActive(bool active)
         {
             foreach (var i in kdTree)
@@ -92,15 +122,6 @@ namespace MagneticFields.Scenes
                 Destroy(i.Value);
                 Destroy(parent);
             }
-
-            foreach (var r in readings)
-            {
-                var parent = r.gameObject;
-                r.OnDestroy();
-                Destroy(r);
-                Destroy(parent);
-            }
-            readings.Clear();
         }
 
         private Button readButton
@@ -127,20 +148,17 @@ namespace MagneticFields.Scenes
         void Awake()
         {
             reading = false;
-            gridHidden = true;
-            //unitSlider.value = unitLength;
-            debug.text = "Awaking Continuous Scene...";
-            //unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(unitSlider); });
-            //resetButton.onClick.AddListener(OnResetButtonClicked);
-            //readButton.onClick.AddListener(OnReadButtonClicked);
-            //hideGridButton.onClick.AddListener(OnHideGridButtonClicked);
+            unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(); });
+            headingsToggle.onValueChanged.AddListener(delegate { OnHeadingsToggleChanged(); });
+            shapesToggle.onValueChanged.AddListener(delegate { OnShapesToggleChanged(); });
+            framesToggle.onValueChanged.AddListener(delegate { OnFramesToggleChanged(); });
+            boundingBoxesToggle.onValueChanged.AddListener(delegate { OnBoundingBoxesChanged(); });
+            resetButton.onClick.AddListener(OnResetButtonClicked);
             kdTree = new KdTree<float, BoundingBox>(3, new FloatMath());
-            readings = new List<LineReading>();
         }
 
         void Update()
         {
-            //debug.text = "Update\n";
             if (Input.touchCount > 0)
             {
                 debug.text = string.Format("{0}", Input.touchCount);
@@ -163,7 +181,6 @@ namespace MagneticFields.Scenes
                 if (Camera.current != null)
                 {
                     var position = Camera.current.transform.position;
-                    //debug.text += ("\n" + Utils.DebugVector("position", position) + "\n");
 
                     if (kdTree.Count == 0)
                     {
@@ -174,17 +191,11 @@ namespace MagneticFields.Scenes
                     {
                         float[] fPosition = { position.x, position.y, position.z };
                         var nearest = kdTree.GetNearestNeighbours(fPosition, 1)[0].Value;
-                        //debug.text += ("\n" + Utils.DebugVector("nearest", nearest.center) + "\n");
 
                         if (!nearest.Surrounds(position))
                         {
                             var nextPosition = GetNextBoxPosition(position);
-                            //debug.text += ("\nadding BoundingBox\n" + Utils.DebugVector("nextPosition", nextPosition) + "\n");
                             AddBoundingBox(nextPosition);
-                        }
-                        else
-                        {
-                           // debug.text += ("\nnearest surrounds position\n");
                         }
                     }
                 }
@@ -198,33 +209,28 @@ namespace MagneticFields.Scenes
             box.center = center;
             box.unitLength = unitLength;
 
-            box.gameObject.SetActive(!gridHidden);
             kdTree.Add(point, box);
+            box.gameObject.SetActive(boundingBoxesToggle.isOn);
 
-            //box.heading = new GameObject().AddComponent<Heading>();
-            //box.heading.widthMultiplier = 0.01f * unitLength;
-            //box.heading.gameObject.transform.rotation = transform.rotation;
-            //box.heading.degrees = Input.compass.magneticHeading;
-            //box.heading.gameObject.transform.position = center;
-            //box.heading.gameObject.transform.localScale *= unitLength;
+            box.heading = new GameObject().AddComponent<Heading>();
+            box.heading.widthMultiplier = 0.01f * unitLength;
+            box.heading.degrees = Input.compass.magneticHeading;
+            box.heading.gameObject.transform.position = center;
+            box.heading.gameObject.transform.localScale *= unitLength;
+            box.heading.gameObject.SetActive(headingsToggle.isOn);
 
             box.lineReading = new GameObject().AddComponent<LineReading>();
-            readings.Add(box.lineReading);
-
-            box.lineReading.ShowFrame = false;
-        //   box.lineReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+            box.lineReading.Set(Input.compass, Input.deviceOrientation);
             box.lineReading.widthMultiplier = 0.01f * unitLength;
             box.lineReading.gameObject.transform.position = center;
             box.lineReading.gameObject.transform.localScale *= unitLength;
+            box.lineReading.showFrame = framesToggle.isOn;
 
             box.shapeReading = new GameObject().AddComponent<ShapeReading>();
-
-        //    box.shapeReading.Set(Input.compass, Camera.current.transform, Input.deviceOrientation);
+            box.shapeReading.Set(Input.compass, Input.deviceOrientation);
             box.shapeReading.gameObject.transform.position = center;
             box.shapeReading.gameObject.transform.localScale *= unitLength;
-
-
-         //   debug.text += reading.ToString();
+            box.shapeReading.SetActive(shapesToggle.isOn);
 
             box.color = box.lineReading.color;
         }

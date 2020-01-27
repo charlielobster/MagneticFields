@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using MagneticFields.Reading;
 
-namespace MagneticFields.Geometry
+namespace MagneticFields.Reading
 { 
 
     public class BoundingBox : MonoBehaviour
@@ -10,7 +10,6 @@ namespace MagneticFields.Geometry
         private float m_unitLength;
         private Color m_color;
         private LineRenderer m_lineRenderer;
-        private GameObject rendererObject;
 
         public LineReading lineReading;
         public ShapeReading shapeReading;
@@ -18,9 +17,9 @@ namespace MagneticFields.Geometry
 
         public BoundingBox()
         {
-            m_unitLength = 1f;
+            m_unitLength = 5f;
             m_color = Color.white;
-            rendererObject = new GameObject();
+            var rendererObject = new GameObject();
             m_lineRenderer = rendererObject.AddComponent<LineRenderer>();
             m_lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
             m_lineRenderer.material.SetColor("_Color", color);
@@ -54,7 +53,7 @@ namespace MagneticFields.Geometry
             set
             {
                 m_center = value;
-                rendererObject.transform.position = value;
+                m_lineRenderer.gameObject.transform.position = value;
             }
         }
 
@@ -66,7 +65,7 @@ namespace MagneticFields.Geometry
             }
             set
             {
-                rendererObject.transform.localScale = Vector3.one * value;
+                m_lineRenderer.gameObject.transform.localScale = Vector3.one * value;
                 m_lineRenderer.widthMultiplier = 0.005f * value;
                 m_unitLength = value;
             }
@@ -135,17 +134,20 @@ namespace MagneticFields.Geometry
         
         public void OnDestroy()
         {
+            Destroy(lineReading);
+            Destroy(heading);
+            Destroy(shapeReading);
             Destroy(m_lineRenderer.gameObject);
         }
 
         public void OnEnable()
         {
-            rendererObject.SetActive(true);
+            m_lineRenderer.gameObject.SetActive(true);
         }
 
         public void OnDisable()
         {
-            rendererObject.SetActive(false);
+            m_lineRenderer.gameObject.SetActive(false);
         }
 
         public bool Surrounds(Vector3 pt)

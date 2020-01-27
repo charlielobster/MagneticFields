@@ -2,7 +2,6 @@
 using UnityEngine;
 using MagneticFields.Reading;
 using MagneticFields.UI;
-using MagneticFields.Geometry;
 using UnityEngine.UI;
 
 namespace MagneticFields.Scenes
@@ -40,6 +39,11 @@ namespace MagneticFields.Scenes
             get => idleMenu.transform.Find("FillPanel/D3VectorToggle").GetComponent<Toggle>();
         }
 
+        private Toggle frameToggle
+        {
+            get => idleMenu.transform.Find("FillPanel/FrameToggle").GetComponent<Toggle>();
+        }
+
         void OnHeadingToggleChanged()
         {
             heading.gameObject.SetActive(headingToggle.isOn);
@@ -48,6 +52,11 @@ namespace MagneticFields.Scenes
         void OnShapeToggleChanged()
         {
             shapeReading.SetActive(shapeToggle.isOn);
+        }
+
+        void OnFrameToggleChanged()
+        {
+            lineReading.showFrame = frameToggle.isOn;
         }
 
         void Awake()
@@ -61,6 +70,7 @@ namespace MagneticFields.Scenes
 
             headingToggle.onValueChanged.AddListener(delegate { OnHeadingToggleChanged(); });
             shapeToggle.onValueChanged.AddListener(delegate { OnShapeToggleChanged(); });
+            frameToggle.onValueChanged.AddListener(delegate { OnFrameToggleChanged(); });
 
             lastUpdated = DateTime.Now;
         }
@@ -79,13 +89,8 @@ namespace MagneticFields.Scenes
                 var orientation = Input.deviceOrientation;
 
                 heading.degrees = compass.magneticHeading;
-
                 lineReading.Set(compass, orientation);
-
-                if (shapeToggle.isOn)
-                {
-                    shapeReading.Set(compass, orientation);
-                }
+                shapeReading.Set(compass, orientation);
 
                 lastUpdated = DateTime.UtcNow;
             }
@@ -95,11 +100,7 @@ namespace MagneticFields.Scenes
             heading.gameObject.transform.position = position;
             shapeReading.gameObject.transform.position = position;
 
-            directionalLight.gameObject.transform.rotation = transform.rotation;
-
-            //var output = String.Empty;
-            //output += shapeReading.ToString();
-            //debug.text = output;
+            directionalLight.gameObject.transform.rotation = transform.rotation;            
         }
     }
 }

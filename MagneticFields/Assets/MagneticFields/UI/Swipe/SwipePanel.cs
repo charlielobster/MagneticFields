@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace MagneticFields.UI.Swipe
 {
@@ -11,7 +12,6 @@ namespace MagneticFields.UI.Swipe
 
         public virtual void Awake()
         {
-            //debug.text = "SwipePanel";
             SetDimension();
         }
 
@@ -26,12 +26,11 @@ namespace MagneticFields.UI.Swipe
         public override void Update()
         {
             base.Update();
-
+       
             switch (state)
             {
                 case SwipeState.SWIPE_LEFT:
                 case SwipeState.SWIPE_RIGHT:
-                    //debug.text = "Swipe";
                     var position = swipeContainer.position;
                     position.x += delta.x;
 
@@ -46,7 +45,7 @@ namespace MagneticFields.UI.Swipe
 
                 default:
                     break;
-            }                   
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MagneticFields.UI.Swipe
@@ -14,6 +15,12 @@ namespace MagneticFields.UI.Swipe
 
     public abstract class SwipeBehavior : DebugBehaviour
     {
+        protected List<DeviceOrientation> orientations = new List<DeviceOrientation>()
+        {
+            DeviceOrientation.Portrait,
+            DeviceOrientation.PortraitUpsideDown
+        };
+
         protected Vector2 delta;
         protected Vector2 lastDelta;
         protected Vector2 acceleration;
@@ -21,28 +28,31 @@ namespace MagneticFields.UI.Swipe
       
         public virtual void Update()
         {
-            foreach (Touch touch in Input.touches)
+            if (orientations.Contains(Input.deviceOrientation))
             {
-
-                switch (touch.phase)
+                foreach (Touch touch in Input.touches)
                 {
-                    case TouchPhase.Moved:
-                    case TouchPhase.Ended:
 
-                        var swipeState = TestForSwipe(touch.deltaPosition);
-                        switch (swipeState)
-                        {
-                            case SwipeState.SWIPE_RIGHT:
-                            case SwipeState.SWIPE_LEFT:
-                                SetSwipeState(touch, swipeState);
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
+                    switch (touch.phase)
+                    {
+                        case TouchPhase.Moved:
+                        case TouchPhase.Ended:
 
-                    default:
-                        break;
+                            var swipeState = TestForSwipe(touch.deltaPosition);
+                            switch (swipeState)
+                            {
+                                case SwipeState.SWIPE_RIGHT:
+                                case SwipeState.SWIPE_LEFT:
+                                    SetSwipeState(touch, swipeState);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
             }
         }

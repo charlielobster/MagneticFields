@@ -79,52 +79,48 @@ namespace MagneticFields.Reading
             Set(compass.rawVector, orientation, DateTime.UtcNow);
         }
 
-        private void Set(Vector3 rawVector, DeviceOrientation orientation, DateTime dateTime)
+        private void Set(Vector3 vector, DeviceOrientation orientation, DateTime dateTime)
         {
             // the rawVector's coordinates are affected by deviceOrientation
             switch (orientation)
             {
                 case DeviceOrientation.LandscapeLeft:
-                    m_rawVector = new Vector3(-rawVector.y, rawVector.x, -rawVector.z);
+                    m_rawVector = new Vector3(-vector.y, vector.x, -vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.LandscapeRight:
-                    m_rawVector = new Vector3(rawVector.y, -rawVector.x, -rawVector.z);
+                    m_rawVector = new Vector3(vector.y, -vector.x, -vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.PortraitUpsideDown:
-                    m_rawVector = new Vector3(-rawVector.x, -rawVector.y, -rawVector.z);
+                    m_rawVector = new Vector3(-vector.x, -vector.y, -vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.Portrait:
                     // portait mode, correct for -z values?         
-                    m_rawVector = new Vector3(rawVector.x, rawVector.y, -rawVector.z);
+                    m_rawVector = new Vector3(vector.x, vector.y, -vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.FaceUp:
                 case DeviceOrientation.FaceDown:
-                    // FaceUp appears to be off by a PI rotation about some axis
-                    m_rawVector = new Vector3(rawVector.x, rawVector.y, rawVector.z);
+                    m_rawVector = new Vector3(vector.x, vector.y, -vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.Unknown:
                 default:
                     // these have issues
-                    m_rawVector = rawVector;
+                    m_rawVector = vector;
                     m_isValid = false;
                     break;
             }
 
             m_color = GetColorForVector(m_rawVector);
             m_dateTime = dateTime;
-
-            //Activate only if valid
-            SetActive(m_isValid);
         }
 
         public Reading()
@@ -135,7 +131,6 @@ namespace MagneticFields.Reading
 
         public virtual void OnDestroy()
         {
-            Destroy(m_root.gameObject);
             Destroy(m_root);
         }
 

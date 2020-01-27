@@ -63,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MagneticFields\Geometry\Axis.cs" />
-    <Compile Include="Assets\MagneticFields\Geometry\BoundingBox.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Circle.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Cone.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Utils.cs" />
+    <Compile Include="Assets\MagneticFields\Reading\BoundingBox.cs" />
     <Compile Include="Assets\MagneticFields\Reading\FieldReading.cs" />
     <Compile Include="Assets\MagneticFields\Reading\Heading.cs" />
     <Compile Include="Assets\MagneticFields\Reading\LineReading.cs" />
