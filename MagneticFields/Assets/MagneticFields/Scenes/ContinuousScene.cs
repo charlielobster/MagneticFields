@@ -8,14 +8,18 @@ using MagneticFields.UI;
 
 namespace MagneticFields.Scenes
 {
-    public class ContinuousScene : DebugBehaviour
+    public class ContinuousScene : TapBehavior
     {
-        public GameObject gridElement;
-
         private float unitLength = 30f; 
         
         private KdTree<float, BoundingBox> kdTree;
         private bool reading;
+
+        public override void OnTap()
+        {
+            reading = !reading;
+            debug.text = (reading ? "Reading" : "Idle");
+        }
 
         private GameObject continuousMenu
         {
@@ -155,26 +159,12 @@ namespace MagneticFields.Scenes
             boundingBoxesToggle.onValueChanged.AddListener(delegate { OnBoundingBoxesChanged(); });
             resetButton.onClick.AddListener(OnResetButtonClicked);
             kdTree = new KdTree<float, BoundingBox>(3, new FloatMath());
+            OnUnitSliderChanged();
         }
 
-        void Update()
+        public override void Update()
         {
-            if (Input.touchCount > 0)
-            {
-                debug.text = string.Format("{0}", Input.touchCount);
-                var touch = Input.GetTouch(0);
-                switch (touch.phase)
-                {
-                    case TouchPhase.Began:
-                        break;
-                    case TouchPhase.Ended:
-                        reading = !reading;
-                        debug.text = "Reading";
-                        break;
-                    default:
-                        break;
-                }
-            }
+            base.Update();
 
             if (reading)
             {

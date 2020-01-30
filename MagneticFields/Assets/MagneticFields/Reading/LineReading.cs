@@ -55,7 +55,7 @@ namespace MagneticFields.Reading
             m_xzRenderer.gameObject.SetActive(active);
             m_yRenderer.gameObject.SetActive(active);
         }
-
+        
         public float widthMultiplier
         {
             set

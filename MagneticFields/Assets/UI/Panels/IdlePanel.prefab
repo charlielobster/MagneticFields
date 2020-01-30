@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 8762148928657414972, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_Name
-      value: SampleSlider
+      value: RateSlider
       objectReference: {fileID: 0}
     - target: {fileID: 9049660202996448966, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
@@ -1211,12 +1211,12 @@ PrefabInstance:
     - target: {fileID: 6262950462393503739, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 320
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 8788835315732972916, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_Text
-      value: Samples (s)
+      value: Rate (s)
       objectReference: {fileID: 0}
     - target: {fileID: 2923081904465631098, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}

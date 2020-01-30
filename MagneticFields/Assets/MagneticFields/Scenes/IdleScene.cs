@@ -23,9 +23,9 @@ namespace MagneticFields.Scenes
             get => GameObject.Find("IdlePanel");
         }
 
-        private Slider sampleSlider
+        private Slider rateSlider
         {
-            get => idleMenu.transform.Find("FillPanel/SampleSlider")
+            get => idleMenu.transform.Find("FillPanel/RateSlider")
                 .transform.Find("BorderPanel/FillPanel/Slider").GetComponent<Slider>();
         }
 
@@ -83,7 +83,7 @@ namespace MagneticFields.Scenes
 
             // only change things if time has elapsed
             var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
-            if (elapsedTicks > (sampleSlider.value * TICKS_PER_SECOND))
+            if (elapsedTicks > (rateSlider.value * TICKS_PER_SECOND))
             {
                 var compass = Input.compass;
                 var orientation = Input.deviceOrientation;

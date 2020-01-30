@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155366114}
   - component: {fileID: 155366113}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SwipeContainerObject
   m_TagString: SwipeContainerObject
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 248345542}
   - component: {fileID: 248345541}
   - component: {fileID: 248345540}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,9 +635,24 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8342272512293397925, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342272512293397925, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4660133334520772897, guid: 4375768e357a4294790a1ff9679aa387,
         type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660133334520772897, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2804973397360107410, guid: 4375768e357a4294790a1ff9679aa387,
@@ -700,6 +715,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6618889128857742923, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544284385958392527, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382360604933543482, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133411688797375166, guid: 4375768e357a4294790a1ff9679aa387,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5109558605625778422, guid: 4375768e357a4294790a1ff9679aa387, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4375768e357a4294790a1ff9679aa387, type: 3}
@@ -744,8 +779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: -515}
-  m_SizeDelta: {x: 540, y: 900}
+  m_AnchoredPosition: {x: -235, y: -815}
+  m_SizeDelta: {x: 540, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231778377
 MonoBehaviour:

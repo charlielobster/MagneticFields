@@ -1,9 +1,12 @@
-﻿using UnityEngine.UI;
+﻿using System;
+using UnityEngine.UI;
 
 namespace MagneticFields.UI
 {
     public class ComboSlider : DebugBehaviour
     {
+        public string FormatString = "{0,0:0.0#}";
+
         private string path
         {
             get => "BorderPanel/FillPanel/";
@@ -31,7 +34,7 @@ namespace MagneticFields.UI
 
         void OnSliderChanged()
         {
-            string asString = string.Format("{0,0:0.0#}", slider.value);
+            string asString = string.Format(FormatString, slider.value);
             currentInput.SetTextWithoutNotify(asString);
         }
 
@@ -43,12 +46,12 @@ namespace MagneticFields.UI
                 if (slider.minValue > result)
                 {
                     slider.minValue = result;
-                    minLabel.text = string.Format("{0,0:0.0#}", result);
+                    minLabel.text = string.Format(FormatString, result);
                 }
                 if (slider.maxValue < result)
                 {
                     slider.maxValue = result;
-                    maxLabel.text = string.Format("{0,0:0.0#}", result);
+                    maxLabel.text = string.Format(FormatString, result);
                 }
                 slider.SetValueWithoutNotify(result);
             }
