@@ -21,6 +21,7 @@ namespace MagneticFields.Reading
             m_xzRenderer.gameObject.transform.parent = root.transform;
 
             m_xzRenderer.gameObject.transform.localScale = new Vector3(.5f, .5f, .5f);
+            widthMultiplier = 0.025f;
         }
 
         public bool showFrame

@@ -3,6 +3,7 @@ using UnityEngine;
 using MagneticFields.Reading;
 using MagneticFields.UI;
 using UnityEngine.UI;
+using static MagneticFields.Geometry.Utils;
 
 namespace MagneticFields.Scenes
 {
@@ -93,6 +94,7 @@ namespace MagneticFields.Scenes
                 shapeReading.Set(compass, orientation);
 
                 lastUpdated = DateTime.UtcNow;
+                debug.text = "heading:" + heading.degrees + " " + DebugVector("rawVector", compass.rawVector);
             }
 
             // place virtual objects directly in front of the camera
@@ -101,6 +103,19 @@ namespace MagneticFields.Scenes
             shapeReading.gameObject.transform.position = position;
 
             directionalLight.gameObject.transform.rotation = transform.rotation;            
+        }
+
+        int quadrant(float heading)
+        {
+            return (int)heading / 90;
+        }
+
+        int quadrant(float x, float z)
+        {
+            if (z > 0)
+                return x > 0 ? 3 : 0;
+            else
+                return x > 0 ? 2 : 1;
         }
     }
 }

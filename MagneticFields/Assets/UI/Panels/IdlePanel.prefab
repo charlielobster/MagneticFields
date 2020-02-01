@@ -1221,22 +1221,22 @@ PrefabInstance:
     - target: {fileID: 2923081904465631098, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_MinValue
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 2923081904465631098, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 2923081904465631098, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_MaxValue
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3701096110025376590, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_Text
-      value: 10.0
+      value: 5.0
       objectReference: {fileID: 0}
     - target: {fileID: 9213889097914870744, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
@@ -1266,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 5183043251491287331, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}
       propertyPath: m_Text
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4730725619002444371, guid: ebbd081025acdc7438e08a28c59f802d,
         type: 3}

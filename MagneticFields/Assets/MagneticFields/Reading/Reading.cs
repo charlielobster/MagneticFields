@@ -76,10 +76,10 @@ namespace MagneticFields.Reading
 
         public virtual void Set(Compass compass, DeviceOrientation orientation)
         {
-            Set(compass.rawVector, orientation, DateTime.UtcNow);
+            Set(compass.rawVector, compass.magneticHeading, orientation, DateTime.UtcNow);
         }
 
-        private void Set(Vector3 vector, DeviceOrientation orientation, DateTime dateTime)
+        private void Set(Vector3 vector, float heading, DeviceOrientation orientation, DateTime dateTime)
         {
             // the rawVector's coordinates are affected by deviceOrientation
             switch (orientation)
@@ -100,14 +100,13 @@ namespace MagneticFields.Reading
                     break;
 
                 case DeviceOrientation.Portrait:
-                    // portait mode, correct for -z values?         
-                    m_rawVector = new Vector3(vector.x, vector.y, -vector.z);
+                    m_rawVector = new Vector3(vector.x, vector.y, vector.z);
                     m_isValid = true;
                     break;
 
                 case DeviceOrientation.FaceUp:
                 case DeviceOrientation.FaceDown:
-                    m_rawVector = new Vector3(vector.x, vector.y, -vector.z);
+                    m_rawVector = new Vector3(vector.x, vector.z, vector.y);
                     m_isValid = true;
                     break;
 
@@ -119,8 +118,43 @@ namespace MagneticFields.Reading
                     break;
             }
 
+            var hq = quadrant(heading);
+            switch (hq)
+            {
+                case 0:
+                    m_rawVector.x = -1.0f * Math.Abs(m_rawVector.x);
+                    m_rawVector.z = Math.Abs(m_rawVector.z);
+                    break;
+                case 1:
+                    m_rawVector.x = -1.0f * Math.Abs(m_rawVector.x);
+                    m_rawVector.z = -1.0f * Math.Abs(m_rawVector.z);
+                    break;
+                case 2:
+                    m_rawVector.x = Math.Abs(m_rawVector.x);
+                    m_rawVector.z = -1.0f * Math.Abs(m_rawVector.z);
+                    break;
+                case 3:
+                    m_rawVector.x = Math.Abs(m_rawVector.x);
+                    m_rawVector.z = Math.Abs(m_rawVector.z);
+                    break;
+            }
+
             m_color = GetColorForVector(m_rawVector);
             m_dateTime = dateTime;
+        }
+
+
+        int quadrant(float heading)
+        {
+            return (int)heading / 90;
+        }
+
+        int quadrant(float x, float z)
+        {
+            if (z > 0)
+                return x > 0 ? 3 : 0;
+            else
+                return x > 0 ? 2 : 1;
         }
 
         public Reading()

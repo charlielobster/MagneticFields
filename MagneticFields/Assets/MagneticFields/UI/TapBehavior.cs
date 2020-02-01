@@ -24,9 +24,9 @@ namespace MagneticFields.UI
             {
                 var pointer = new PointerEventData(EventSystem.current);
                 pointer.position = touch.position;
-                var raycastResults = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointer, raycastResults);
-                if (raycastResults.Count == 0)
+                var results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointer, results);
+                if (results.Count == 0)
                 {
                     int fingerIndex = touch.fingerId;
 
@@ -48,7 +48,7 @@ namespace MagneticFields.UI
                         if (tapTime <= tapTimeThreshold && touchDidMove[fingerIndex] == false)
                         {
                             OnTap();
-                            // debug.text += "\nFinger #" + fingerIndex.ToString() + " TAP DETECTED at: " + touch.position.ToString();
+                            debug.text += "\nFinger #" + fingerIndex.ToString() + " TAP DETECTED at: " + touch.position.ToString();
                         }
                     }
                 }
