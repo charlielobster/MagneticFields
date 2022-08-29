@@ -15,8 +15,8 @@ namespace MagneticFields.Scenes
         
         private ARRaycastManager raycastManager;
         private ARPlaneManager planeManager;
-        private ARReferencePointManager referencePointManager;
-        private ARReferencePoint referencePoint = null;
+        private ARAnchorManager referencePointManager;
+        private ARAnchor referencePoint = null;
         private List<ARRaycastHit> hits = new List<ARRaycastHit>();
         private int samples = 1;
         private int xDimension = 4;
@@ -192,7 +192,7 @@ namespace MagneticFields.Scenes
             {
                 planeManager = GetComponent<ARPlaneManager>();
                 raycastManager = GetComponent<ARRaycastManager>();
-                referencePointManager = GetComponent<ARReferencePointManager>();
+                referencePointManager = GetComponent<ARAnchorManager>();
                 xSlider.onValueChanged.AddListener(delegate { OnXSliderChanged(xSlider); });
                 ySlider.onValueChanged.AddListener(delegate { OnYSliderChanged(ySlider); });
                 zSlider.onValueChanged.AddListener(delegate { OnZSliderChanged(zSlider); });
@@ -239,7 +239,7 @@ namespace MagneticFields.Scenes
                                 center = pose.position;
 
                                 var t = planeManager.trackables[hit.trackableId];
-                                referencePoint = referencePointManager.AttachReferencePoint(t, pose);
+                                referencePoint = referencePointManager.AttachAnchor(t, pose);
                              //   DisableTracking(t);
                                 PlaceGrid();
                             }
@@ -416,7 +416,7 @@ namespace MagneticFields.Scenes
             referencePointManager.enabled = true;
             if (referencePoint != null)
             {
-                referencePointManager.RemoveReferencePoint(referencePoint);
+                referencePointManager.RemoveAnchor(referencePoint);
                 referencePoint = null;
             }
         }

@@ -18,5 +18,5 @@ EditorBuildSettings:
     path: Assets/Scenes/PlaceScene.unity
     guid: da51e226146c5de4db7936466b6aef6e
   m_configObjects:
-    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: b624fa43ba17a2d4783ce5758b3075ab,
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b985b8bbf90c15b4882cccf76b3f4691,
       type: 2}
