@@ -57,20 +57,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MagneticFields\Scenes\ContinuousScene.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipePanel.cs" />
+    <Compile Include="Assets\MagneticFields\UI\DebugBehaviour.cs" />
     <Compile Include="Assets\MagneticFields\Reading\Reading.cs" />
-    <Compile Include="Assets\MagneticFields\Geometry\BoundingBox.cs" />
+    <Compile Include="Assets\MagneticFields\Reading\BoundingBox.cs" />
     <Compile Include="Assets\MagneticFields\UI\WorldCanvas.cs" />
     <Compile Include="Assets\KdTree\HyperRect.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeBehaviour.cs" />
     <Compile Include="Assets\KdTree\NearestNeighbourList.cs" />
     <Compile Include="Assets\MagneticFields\Reading\LineReading.cs" />
     <Compile Include="Assets\MagneticFields\Reading\FieldReading.cs" />
     <Compile Include="Assets\KdTree\Math\ITypeMath.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Circle.cs" />
-    <Compile Include="Assets\MagneticFields\UI\PersistentMenu.cs" />
+    <Compile Include="Assets\MagneticFields\UI\ComboSlider.cs" />
     <Compile Include="Assets\MagneticFields\Reading\ShapeReading.cs" />
     <Compile Include="Assets\MagneticFields\Geometry\Utils.cs" />
     <Compile Include="Assets\KdTree\Math\GeoUtils.cs" />
-    <Compile Include="Assets\MagneticFields\UI\SwipeComponent.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Swipe\SwipeContainer.cs" />
     <Compile Include="Assets\KdTree\Math\TypeMath.cs" />
     <Compile Include="Assets\KdTree\IPriorityQueue.cs" />
     <Compile Include="Assets\KdTree\PriorityQueue.cs" />
@@ -80,7 +83,9 @@
     <Compile Include="Assets\KdTree\Math\GeoMath.cs" />
     <Compile Include="Assets\MagneticFields\Reading\Heading.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\PlaceScene.cs" />
+    <Compile Include="Assets\MagneticFields\UI\Palette.cs" />
     <Compile Include="Assets\KdTree\IKdTree.cs" />
+    <Compile Include="Assets\MagneticFields\UI\TapBehavior.cs" />
     <Compile Include="Assets\KdTree\Math\FloatMath.cs" />
     <Compile Include="Assets\KdTree\KdTreeNode.cs" />
     <Compile Include="Assets\MagneticFields\Scenes\IdleScene.cs" />
