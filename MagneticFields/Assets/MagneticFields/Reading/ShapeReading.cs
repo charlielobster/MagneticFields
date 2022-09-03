@@ -8,7 +8,6 @@ namespace MagneticFields.Reading
     public class ShapeReading : Reading
     {
         private Material m_vectorMaterial;
-        private GameObject m_axis;
         private GameObject m_cone;
         private GameObject m_stem;
         private GameObject m_arrowHeadBase;
@@ -33,8 +32,12 @@ namespace MagneticFields.Reading
             var q = Quaternion.Euler(90f + phi, 0, 0);
             q = Quaternion.Euler(0, -theta, 0) * q;
             root.transform.rotation = q;
+
+            Transform cameraTransform = Camera.current.transform;
+            float cameraCorrection = (float)(Math.Atan2(cameraTransform.up.z, cameraTransform.up.x) * 180 / Math.PI) - 90.0f;
+            transform.rotation *= Quaternion.Euler(new Vector3(0, -cameraCorrection, 0));
         }
-        
+
         public ShapeReading()
         {
             m_vectorMaterial = new Material(Shader.Find("Diffuse"));

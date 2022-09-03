@@ -47,6 +47,11 @@ namespace MagneticFields.Reading
             m_xzRenderer.SetPosition(1, new Vector3(xz.x, 0, xz.y));
 
             m_yRenderer.SetPosition(1, new Vector3(0, normalized.y, 0));
+
+            Transform cameraTransform = Camera.current.transform;
+            float cameraCorrection = (float)(Math.Atan2(cameraTransform.up.z, cameraTransform.up.x) * 180 / Math.PI) - 90.0f;
+            Quaternion q = Quaternion.Euler(new Vector3(0, -cameraCorrection, 0));
+            transform.rotation = q;
         }
 
         public override void SetActive(bool active)

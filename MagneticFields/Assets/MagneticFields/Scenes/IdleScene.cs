@@ -79,22 +79,28 @@ namespace MagneticFields.Scenes
         void Update()
         {
             // calculate location to place virtual objects directly in front of the camera
-            var transform = Camera.current.transform;
-            var position = transform.position + transform.forward * 2.5f;
+            Transform transform = Camera.current.transform;
+            Vector3 position = transform.position + transform.forward * 2.5f;
+            Compass compass = Input.compass;
+            DeviceOrientation orientation = Input.deviceOrientation;
 
             // only change things if time has elapsed
             var elapsedTicks = (DateTime.UtcNow.Ticks - lastUpdated.Ticks);
             if (elapsedTicks > (rateSlider.value * TICKS_PER_SECOND))
             {
-                var compass = Input.compass;
-                var orientation = Input.deviceOrientation;
+                float cameraCorrection = (float)(Math.Atan2(transform.up.z, transform.up.x) * 180 / Math.PI) - 90.0f;
 
-                heading.degrees = compass.magneticHeading;
+                heading.degrees = cameraCorrection + compass.trueHeading; 
                 lineReading.Set(compass, orientation);
                 shapeReading.Set(compass, orientation);
 
                 lastUpdated = DateTime.UtcNow;
-                debug.text = "heading:" + heading.degrees + " " + DebugVector("rawVector", compass.rawVector);
+
+                //Quaternion q = Quaternion.Euler(new Vector3(0, -cameraCorrection, 0));
+                //lineReading.transform.rotation = q;
+                //shapeReading.transform.rotation *= q;
+                //debug.text = DebugQuaternion("lineReading.rotation", q);
+
             }
 
             // place virtual objects directly in front of the camera
@@ -102,7 +108,7 @@ namespace MagneticFields.Scenes
             heading.gameObject.transform.position = position;
             shapeReading.gameObject.transform.position = position;
 
-            directionalLight.gameObject.transform.rotation = transform.rotation;            
+            directionalLight.gameObject.transform.rotation = transform.rotation;
         }
 
         int quadrant(float heading)

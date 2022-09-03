@@ -18,7 +18,7 @@ namespace MagneticFields.Geometry
         {
             return (name + ".x:" + String.Format("{0,10:00.00}", vector.x) +
                 "\n" + name + ".y:" + String.Format("{0,10:00.00}", vector.y) +
-                "\n" + name + ".z:" + String.Format("{0,10:00.00}", vector.z) +
+                "\n" + name + ".z:" + String.Format("{0,10:00.00}", vector.z) + 
                 "\nmagnitude: " + String.Format("{0,10:00.00}", vector.magnitude) + "\n");
         }
 
