@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MagneticFields.UI.Swipe
 {
+    // figured out this only appears to work in portrait orientation, DOI!
     public class SwipePanel : SwipeBehavior
     {
         protected RectTransform swipeContainer
