@@ -13,11 +13,16 @@
 /MagneticFields/.vs
 /MagneticFields/Assets/PlugIns
 /MagneticFields/Library/metadata
+/MagneticFields/Library/Artifacts
+/MagneticFields/Library/Bee
+/MagneticFields/Library/Bee/artifacts
 /MagneticFields/Library/PackageCache
 /MagneticFields/Library/PlayerDataCache/Android
 /MagneticFields/Temp/bin/Debug
 /MagneticFields/Temp
 /MagneticFields/Library/assetDatabase3
+/MagneticFields/Library/SourceAssetDB
+/MagneticFields/Library/ArtifactDB
 *.buildreport
 /MagneticFields/Library/EditorUserBuildSettings.asset
 /MagneticFields/Library/EditorUserSettings.asset
@@ -25,3 +30,4 @@
 /MagneticFields/Library/EditorInstance.json
 /MagneticFields/Builds/MagneticFields.apk
 /MagneticFields/Library/CrashedAssetImports.txt
+

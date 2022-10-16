@@ -7,203 +7,207 @@
 7
 8    <uses-sdk
 9        android:minSdkVersion="24"
-9-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
+9-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
 10        android:targetSdkVersion="30" />
-10-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
+10-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml
 11
 12    <supports-screens
-12-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:3-163
+12-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:3-163
 13        android:anyDensity="true"
-13-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:135-160
+13-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:135-160
 14        android:largeScreens="true"
-14-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:78-105
+14-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:78-105
 15        android:normalScreens="true"
-15-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:49-77
+15-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:49-77
 16        android:smallScreens="true"
-16-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:21-48
+16-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:21-48
 17        android:xlargeScreens="true" />
-17-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:106-134
+17-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:106-134
 18
 19    <uses-feature android:glEsVersion="0x00030000" />
-19-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-54
-19-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:12:19-51
+19-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:20:5-54
+19-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:20:19-51
 20
-21    <uses-permission android:name="android.permission.INTERNET" />
-21-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-67
-21-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:14:22-64
-22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-22-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-79
-22-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:15:22-76
-23    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-23-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:16:5-79
-23-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:16:22-76
-24
-25    <uses-feature
-25-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:18:5-20:36
-26        android:name="android.hardware.location.gps"
-26-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:19:9-53
-27        android:required="false" />
-27-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:20:9-33
-28    <uses-feature
-28-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:21:5-23:36
-29        android:name="android.hardware.location"
-29-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:22:9-49
-30        android:required="false" />
-30-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:23:9-33
-31    <uses-feature
-31-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:5-26:36
-32        android:name="android.hardware.touchscreen"
-32-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:25:9-52
-33        android:required="false" />
-33-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:26:9-33
-34    <uses-feature
-34-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:27:5-29:36
-35        android:name="android.hardware.touchscreen.multitouch"
-35-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:28:9-63
-36        android:required="false" />
-36-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:29:9-33
-37    <uses-feature
-37-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:30:5-32:36
-38        android:name="android.hardware.touchscreen.multitouch.distinct"
-38-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:31:9-72
-39        android:required="false" />
-39-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:32:9-33
-40
-41    <uses-permission android:name="android.permission.CAMERA" />
-41-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:34:5-65
-41-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:34:22-62
-42
-43    <uses-feature
-43-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:36:5-38:35
-44        android:name="android.hardware.camera.ar"
-44-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:37:9-50
-45        android:required="true" />
-45-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:38:9-32
-46    <uses-feature
-46-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:39:5-41:35
-47        android:name="com.google.ar.core.depth"
-47-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:40:9-48
-48        android:required="true" />
-48-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:41:9-32
-49
-50    <queries>
-50-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:29:5-31:15
-51        <package android:name="com.google.ar.core" />
-51-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:30:9-54
-51-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:30:18-51
-52    </queries>
-53
-54    <application
-54-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:3-83
-55        android:extractNativeLibs="true"
-55-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:43:18-50
-56        android:icon="@mipmap/app_icon"
-56-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:49-80
-57        android:label="@string/app_name" >
-57-->D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:16-48
-58        <activity
-58-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:44:9-64:20
-59            android:name="com.unity3d.player.UnityPlayerActivity"
-59-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:45:13-66
-60            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
-60-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:46:13-194
-61            android:hardwareAccelerated="false"
-61-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:47:13-48
-62            android:launchMode="singleTask"
-62-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:48:13-44
-63            android:resizeableActivity="false"
-63-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:49:13-47
-64            android:screenOrientation="fullUser"
-64-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:50:13-49
-65            android:theme="@style/UnityThemeSelector" >
-65-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:51:13-54
-66            <intent-filter>
-66-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:52:13-56:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:53:17-69
-67-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:53:25-66
-68
-69                <category android:name="android.intent.category.LAUNCHER" />
-69-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:55:17-77
-69-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:55:27-74
-70            </intent-filter>
-71
-72            <meta-data
-72-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:58:13-60:40
-73                android:name="unityplayer.UnityActivity"
-73-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:59:17-57
-74                android:value="true" />
-74-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:60:17-37
-75            <meta-data
-75-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:61:13-63:40
-76                android:name="android.notch_support"
-76-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:62:17-53
-77                android:value="true" />
-77-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:63:17-37
-78        </activity>
-79
-80        <meta-data
-80-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:66:9-68:33
-81            android:name="unity.splash-mode"
-81-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:67:13-45
-82            android:value="0" />
-82-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:68:13-30
-83        <meta-data
-83-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:69:9-71:36
-84            android:name="unity.splash-enable"
-84-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:70:13-47
-85            android:value="True" />
-85-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:71:13-33
-86        <meta-data
-86-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:72:9-74:36
-87            android:name="unity.launch-fullscreen"
-87-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:73:13-51
-88            android:value="True" />
-88-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:74:13-33
-89        <meta-data
-89-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:75:9-77:37
-90            android:name="unity.allow-resizable-window"
-90-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:76:13-56
-91            android:value="False" />
-91-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:77:13-34
-92        <meta-data
-92-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:78:9-80:50
-93            android:name="notch.config"
-93-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:79:13-40
-94            android:value="portrait|landscape" />
-94-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:80:13-47
-95        <meta-data
-95-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:81:9-83:36
-96            android:name="unityplayer.SkipPermissionsDialog"
-96-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:82:13-61
-97            android:value="true" />
-97-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:83:13-33
-98        <meta-data
-98-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:84:9-86:40
-99            android:name="com.google.ar.core"
-99-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:85:13-46
-100            android:value="required" /> <!-- The minimal version code of ARCore APK required for an app using this SDK. -->
-100-->[:unityLibrary] D:\Users\skoob\repos\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:86:13-37
-101        <meta-data
-101-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:36:9-38:41
-102            android:name="com.google.ar.core.min_apk_version"
-102-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:37:13-62
-103            android:value="210910000" /> <!-- This activity is critical for installing ARCore when it is not already present. -->
-103-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:38:13-38
-104        <activity
-104-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:40:9-46:80
-105            android:name="com.google.ar.core.InstallActivity"
-105-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:41:13-62
-106            android:configChanges="keyboardHidden|orientation|screenSize"
-106-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:42:13-74
-107            android:excludeFromRecents="true"
-107-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:43:13-46
-108            android:exported="false"
-108-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:44:13-37
-109            android:launchMode="singleTop"
-109-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:45:13-43
-110            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
-110-->[:arcore_client:] C:\Users\skoob\.gradle\caches\transforms-2\files-2.1\ae4e63aee2448ed4859dc95da47269f5\arcore_client\AndroidManifest.xml:46:13-77
-111    </application>
-112
-113</manifest>
+21    <uses-permission android:name="android.permission.CAMERA" />
+21-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:22:5-65
+21-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:22:22-62
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:23:5-67
+22-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:23:22-64
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:5-79
+23-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:24:22-76
+24    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+24-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:25:5-79
+24-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:25:22-76
+25
+26    <uses-feature
+26-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:27:5-29:36
+27        android:name="android.hardware.location.gps"
+27-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:28:9-53
+28        android:required="false" />
+28-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:29:9-33
+29    <uses-feature
+29-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:30:5-32:36
+30        android:name="android.hardware.location"
+30-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:31:9-49
+31        android:required="false" />
+31-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:32:9-33
+32    <uses-feature
+32-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:5-35:36
+33        android:name="android.hardware.touchscreen"
+33-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:34:9-52
+34        android:required="false" />
+34-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:35:9-33
+35    <uses-feature
+35-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:36:5-38:36
+36        android:name="android.hardware.touchscreen.multitouch"
+36-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:37:9-63
+37        android:required="false" />
+37-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:38:9-33
+38    <uses-feature
+38-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:39:5-41:36
+39        android:name="android.hardware.touchscreen.multitouch.distinct"
+39-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:40:9-72
+40        android:required="false" />
+40-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:41:9-33
+41    <uses-feature
+41-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:42:5-44:35
+42        android:name="android.hardware.camera.ar"
+42-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:43:9-50
+43        android:required="true" />
+43-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:44:9-32
+44    <uses-feature
+44-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:45:5-47:35
+45        android:name="com.google.ar.core.depth"
+45-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:46:9-48
+46        android:required="true" />
+46-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:47:9-32
+47
+48    <queries>
+48-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:49:5-51:15
+49        <package android:name="com.google.ar.core" />
+49-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:50:9-54
+49-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:50:18-51
+50    </queries>
+51
+52    <application
+52-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:3-83
+53        android:extractNativeLibs="true"
+53-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:54:9-41
+54        android:icon="@mipmap/app_icon"
+54-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:49-80
+55        android:label="@string/app_name" >
+55-->C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:16-48
+56        <activity
+56-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:57:9-80:20
+57            android:name="com.unity3d.player.UnityPlayerActivity"
+57-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:58:13-66
+58            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+58-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:59:13-194
+59            android:hardwareAccelerated="false"
+59-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:60:13-48
+60            android:launchMode="singleTask"
+60-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:61:13-44
+61            android:resizeableActivity="false"
+61-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:62:13-47
+62            android:screenOrientation="fullUser"
+62-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:63:13-49
+63            android:theme="@style/UnityThemeSelector" >
+63-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:64:13-54
+64            <intent-filter>
+64-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:65:13-69:29
+65                <action android:name="android.intent.action.MAIN" />
+65-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:66:17-69
+65-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:66:25-66
+66
+67                <category android:name="android.intent.category.LAUNCHER" />
+67-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:68:17-77
+67-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:68:27-74
+68            </intent-filter>
+69
+70            <meta-data
+70-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:71:13-73:40
+71                android:name="unityplayer.UnityActivity"
+71-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:72:17-57
+72                android:value="true" />
+72-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:73:17-37
+73            <meta-data
+73-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:74:13-76:40
+74                android:name="android.notch_support"
+74-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:75:17-53
+75                android:value="true" />
+75-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:76:17-37
+76            <meta-data
+76-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:74:13-76:40
+77                android:name="android.notch_support"
+77-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:75:17-53
+78                android:value="true" />
+78-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:76:17-37
+79        </activity>
+80
+81        <meta-data
+81-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:82:9-84:33
+82            android:name="unity.splash-mode"
+82-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:83:13-45
+83            android:value="0" />
+83-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:84:13-30
+84        <meta-data
+84-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:85:9-87:36
+85            android:name="unity.splash-enable"
+85-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:86:13-47
+86            android:value="True" />
+86-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:87:13-33
+87        <meta-data
+87-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:88:9-90:36
+88            android:name="unity.launch-fullscreen"
+88-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:89:13-51
+89            android:value="True" />
+89-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:90:13-33
+90        <meta-data
+90-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:91:9-93:37
+91            android:name="unity.allow-resizable-window"
+91-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:92:13-56
+92            android:value="False" />
+92-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:93:13-34
+93        <meta-data
+93-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:94:9-96:50
+94            android:name="notch.config"
+94-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:95:13-40
+95            android:value="portrait|landscape" />
+95-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:96:13-47
+96        <meta-data
+96-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:97:9-99:36
+97            android:name="unityplayer.SkipPermissionsDialog"
+97-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:98:13-61
+98            android:value="true" />
+98-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:99:13-33
+99        <meta-data
+99-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:100:9-102:40
+100            android:name="com.google.ar.core"
+100-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:101:13-46
+101            android:value="required" /> <!-- The minimal version code of ARCore APK required for an app using this SDK. -->
+101-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:102:13-37
+102        <meta-data
+102-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:104:9-106:41
+103            android:name="com.google.ar.core.min_apk_version"
+103-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:105:13-62
+104            android:value="210910000" /> <!-- This activity is critical for installing ARCore when it is not already present. -->
+104-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:106:13-38
+105        <activity
+105-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:108:9-114:80
+106            android:name="com.google.ar.core.InstallActivity"
+106-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:109:13-62
+107            android:configChanges="keyboardHidden|orientation|screenSize"
+107-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:110:13-74
+108            android:excludeFromRecents="true"
+108-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:111:13-46
+109            android:exported="false"
+109-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:112:13-37
+110            android:launchMode="singleTop"
+110-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:113:13-43
+111            android:theme="@android:style/Theme.Material.Light.Dialog.Alert" />
+111-->[:unityLibrary] C:\Users\erikb\skoobs\MagneticFields\MagneticFields\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:114:13-77
+112    </application>
+113
+114</manifest>
