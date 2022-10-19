@@ -12,9 +12,9 @@ namespace MagneticFields.Scenes
 {
     public class ContinuousScene : TapBehavior
     {
-        private float unitLength = 30f; 
-        
+        private float unitLength = 30f;         
         private KdTree<float, BoundingBox> kdTree;
+        private bool reading;
 
         public override void OnTap()
         {
