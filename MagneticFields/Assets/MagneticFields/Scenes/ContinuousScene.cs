@@ -7,8 +7,6 @@ using KdTree.Math;
 using MagneticFields.UI;
 using System.IO;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARCore;
-using UnityEngine.XR.ARSubsystems;
 
 namespace MagneticFields.Scenes
 {
@@ -17,25 +15,11 @@ namespace MagneticFields.Scenes
         private float unitLength = 30f; 
         
         private KdTree<float, BoundingBox> kdTree;
-        private bool reading;
-        private ARSession m_Session;
-        private string m_Mp4Path;
-        private bool m_initRecording = false;
 
         public override void OnTap()
         {
             reading = !reading;
             debug.text = (reading ? "Reading" : "Idle");
-            if (!m_initRecording && m_Session.subsystem is ARCoreSessionSubsystem subsystem)
-            {
-                ArSession session = subsystem.session;
-                using (var config = new ArRecordingConfig(session))
-                {
-                    config.SetMp4DatasetFilePath(session, m_Mp4Path);
-                    var status = subsystem.StartRecording(config);
-                }
-                m_initRecording = true;
-            }
         }
 
         private GameObject continuousMenu
@@ -166,20 +150,8 @@ namespace MagneticFields.Scenes
             }
         }
 
-        void OnDestroy()
-        {
-            if (m_Session.subsystem is ARCoreSessionSubsystem subsystem)
-            {
-                subsystem.StopRecording();
-            }
-        }
-
         void Awake()
         {
-            m_Session = GetComponent<ARSession>();
-            m_Mp4Path = Path.Combine(Application.persistentDataPath, "arcore-session.mp4");
-            
-
             reading = false;
             unitSlider.onValueChanged.AddListener(delegate { OnUnitSliderChanged(); });
             headingsToggle.onValueChanged.AddListener(delegate { OnHeadingsToggleChanged(); });
