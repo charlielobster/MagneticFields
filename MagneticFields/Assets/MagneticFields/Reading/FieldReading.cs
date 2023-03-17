@@ -19,7 +19,7 @@ namespace MagneticFields.Reading
         private GameObject arrowHeadBase;
         private GameObject cone;
 
-        public FieldReading()
+        public virtual void Awake()
         {
             vectorMaterial = new Material(Shader.Find("Diffuse"));
             vectorMaterial.SetColor("_Color", color);

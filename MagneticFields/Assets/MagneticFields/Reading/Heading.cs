@@ -11,7 +11,7 @@ namespace MagneticFields.Reading
         private Circle m_circle;
         private Axis m_axis;
 
-        public Heading()
+        public virtual void Awake()
         {
             m_headingRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.white);
             m_headingRenderer.gameObject.transform.parent = gameObject.transform;

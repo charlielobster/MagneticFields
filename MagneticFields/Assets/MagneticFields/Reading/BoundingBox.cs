@@ -15,7 +15,7 @@ namespace MagneticFields.Reading
         public ShapeReading shapeReading;
         public Heading heading;
 
-        public BoundingBox()
+        public virtual void Awake()
         {
             m_unitLength = 5f;
             m_color = Color.white;

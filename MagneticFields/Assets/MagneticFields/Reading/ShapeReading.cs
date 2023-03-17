@@ -38,8 +38,9 @@ namespace MagneticFields.Reading
             transform.rotation *= Quaternion.Euler(new Vector3(0, -cameraCorrection, 0));
         }
 
-        public ShapeReading()
+        public override void Awake()
         {
+            base.Awake();
             m_vectorMaterial = new Material(Shader.Find("Diffuse"));
             m_vectorMaterial.SetColor("_Color", color);
 

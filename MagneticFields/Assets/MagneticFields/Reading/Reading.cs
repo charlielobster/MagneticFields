@@ -157,7 +157,7 @@ namespace MagneticFields.Reading
                 return x > 0 ? 2 : 1;
         }
 
-        public Reading()
+        public virtual void Awake()
         {
             m_root = new GameObject();
             m_root.transform.parent = gameObject.transform;

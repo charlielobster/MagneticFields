@@ -9,7 +9,7 @@ namespace MagneticFields.Geometry
         private LineRenderer m_renderer;
 
         // draw a unit-length yellow circle in the xz-plane
-        public Circle()
+        void Awake()
         {
             m_renderer = gameObject.AddComponent<LineRenderer>();
             m_renderer.gameObject.transform.parent = this.gameObject.transform;

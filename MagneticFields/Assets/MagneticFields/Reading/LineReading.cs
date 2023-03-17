@@ -10,8 +10,9 @@ namespace MagneticFields.Reading
         private LineRenderer m_yRenderer;
         private LineRenderer m_xzRenderer;
 
-        public LineReading()
+        public override void Awake()
         {
+            base.Awake();
             m_rawVectorRenderer = Utils.InitializeLineRenderer(root, color);
 
             m_yRenderer = Utils.InitializeLineRenderer(new GameObject(), Color.magenta);
